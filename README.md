@@ -20,15 +20,15 @@
   <tr>
     <td width="50%" valign="top">
       <h3><a href="https://github.com/pavel-logachev/voice-input">Voice Input</a></h3>
-      <p>Installable local-first dictation for Windows. Hold a global hotkey, speak, and the transcript returns to the field where recording started.</p>
-      <p><strong>Built with:</strong> C#, .NET, WPF, WASAPI, GigaAM</p>
-      <p><a href="https://github.com/pavel-logachev/voice-input/releases/latest">Download the latest release →</a></p>
+      <p>Local Windows dictation from a global hotkey to the active text field.</p>
+      <p><strong>Stack:</strong> .NET · WPF · WASAPI · GigaAM</p>
+      <p><a href="https://github.com/pavel-logachev/voice-input/releases/latest">Release →</a></p>
     </td>
     <td width="50%" valign="top">
       <h3><a href="https://github.com/pavel-logachev/pora">Пора</a></h3>
-      <p>Signed local-first Android medication reminder with exact alarms, history and optional account sync.</p>
-      <p><strong>Built with:</strong> React Native, Expo, TypeScript, SQLite, Fastify, PostgreSQL</p>
-      <p><a href="https://github.com/pavel-logachev/pora/releases/latest">Download the Android release →</a></p>
+      <p>Android medication schedules with exact alarms, history and optional sync.</p>
+      <p><strong>Stack:</strong> Expo · SQLite · Fastify · PostgreSQL</p>
+      <p><a href="https://github.com/pavel-logachev/pora/releases/latest">Android release →</a></p>
     </td>
   </tr>
   <tr>
@@ -53,12 +53,10 @@ I connect business context, software and operations. My background is B2B IT and
 
 ## Working method
 
-```text
-01  Understand the real workflow
-02  Build one complete vertical slice
-03  Verify failure paths and real environments
-04  Release with documentation and explicit limits
-```
+1. **Understand** the real workflow.
+2. **Build** one complete vertical slice.
+3. **Verify** failure paths and real environments.
+4. **Release** with documentation and explicit limits.
 
 The public repositories here contain independent products and open-source systems. Client details, learning repositories and closed operational systems are not published.
 
