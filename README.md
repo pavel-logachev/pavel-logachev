@@ -12,11 +12,7 @@
   <a href="https://github.com/pavel-logachev/portable-agent-os">Portable Agent OS</a>
 </p>
 
-## Product engineering from context to release
-
-I design and build digital products that connect business context, software and operations. My background is B2B IT and systems integration; my product work spans local-first desktop applications, mobile utilities, internal tools and practical AI automation.
-
-I keep the first version bounded, make critical decisions visible to a person, and treat testing, deployment and documentation as part of the product rather than post-release chores.
+## Selected work
 
 <table>
   <tr>
@@ -34,6 +30,10 @@ I keep the first version bounded, make critical decisions visible to a person, a
     </td>
   </tr>
 </table>
+
+## Product engineering from context to release
+
+I connect business context, software and operations. My background is B2B IT and systems integration; my product work spans local-first applications, internal tools and practical AI automation. I keep the first version bounded and treat testing, deployment and documentation as part of the product.
 
 ## What I build
 

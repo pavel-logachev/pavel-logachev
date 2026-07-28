@@ -13,7 +13,7 @@ INK = "#10243A"
 PAPER = "#F1EFE8"
 COBALT = "#3558D7"
 RED = "#D95A43"
-MUTED = "#677586"
+MUTED = "#4F5E6E"
 HAIR = "#CBD0D2"
 WHITE = "#F9F8F4"
 
@@ -81,25 +81,25 @@ def route_graph(draw: ImageDraw.ImageDraw, box: tuple[int, int, int, int], scale
 
 
 def render_banner() -> None:
-    size = (1600, 480)
+    size = (1600, 400)
     im = Image.new("RGB", size, PAPER)
     draw = ImageDraw.Draw(im)
 
     draw.rectangle((0, 0, 22, size[1]), fill=COBALT)
     draw.rectangle((22, 0, 28, size[1]), fill=RED)
-    draw.line((92, 74, 1508, 74), fill=HAIR, width=2)
-    draw.line((92, 388, 1508, 388), fill=HAIR, width=2)
+    draw.line((92, 64, 1508, 64), fill=HAIR, width=2)
+    draw.line((92, 322, 1508, 322), fill=HAIR, width=2)
 
-    tracking(draw, (94, 34), "PAVEL LOGACHEV / PRODUCT ENGINEERING", font(SANS, 19), MUTED, 2)
-    draw.text((92, 116), "Pavel", font=font(SERIF, 70), fill=INK)
-    draw.text((92, 188), "Logachev", font=font(SERIF, 70), fill=INK)
-    draw.text((96, 288), "CONTEXT / SOFTWARE / RELEASE", font=font(SANS, 24), fill=COBALT)
+    tracking(draw, (94, 27), "PAVEL LOGACHEV / PRODUCT ENGINEERING", font(SANS, 19), MUTED, 2)
+    draw.text((92, 92), "Pavel", font=font(SERIF, 64), fill=INK)
+    draw.text((92, 158), "Logachev", font=font(SERIF, 64), fill=INK)
+    draw.text((96, 252), "CONTEXT / SOFTWARE / RELEASE", font=font(SANS, 24), fill=COBALT)
 
-    route_graph(draw, (866, 128, 1460, 318), 1.0)
-    tracking(draw, (94, 414), "LOCAL-FIRST", font(SANS, 17), INK, 2)
-    tracking(draw, (392, 414), "AI AUTOMATION", font(SANS, 17), INK, 2)
-    tracking(draw, (752, 414), "INTERNAL TOOLS", font(SANS, 17), INK, 2)
-    tracking(draw, (1155, 414), "MOSCOW / 2026", font(SANS, 17), MUTED, 2)
+    route_graph(draw, (866, 96, 1460, 286), 1.0)
+    tracking(draw, (94, 348), "LOCAL-FIRST", font(SANS, 17), INK, 2)
+    tracking(draw, (392, 348), "AI AUTOMATION", font(SANS, 17), INK, 2)
+    tracking(draw, (752, 348), "INTERNAL TOOLS", font(SANS, 17), INK, 2)
+    tracking(draw, (1155, 348), "MOSCOW / 2026", font(SANS, 17), MUTED, 2)
 
     im = Image.alpha_composite(im.convert("RGBA"), noise_layer(size)).convert("RGB")
     im.save(OUT / "profile-banner.png", optimize=True, quality=94)
