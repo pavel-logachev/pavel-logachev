@@ -1,3 +1,5 @@
+<!-- github-profile-readme -->
+
 <p align="center">
   <img src="assets/profile-banner.png" alt="Pavel Logachev — product engineering, local-first applications and practical AI automation" width="100%">
 </p>
