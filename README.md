@@ -9,6 +9,8 @@
   &nbsp;·&nbsp;
   <a href="https://github.com/pavel-logachev/voice-input">Voice Input</a>
   &nbsp;·&nbsp;
+  <a href="https://github.com/pavel-logachev/pora">Пора</a>
+  &nbsp;·&nbsp;
   <a href="https://github.com/pavel-logachev/portable-agent-os">Portable Agent OS</a>
 </p>
 
@@ -23,10 +25,17 @@
       <p><a href="https://github.com/pavel-logachev/voice-input/releases/latest">Download the latest release →</a></p>
     </td>
     <td width="50%" valign="top">
+      <h3><a href="https://github.com/pavel-logachev/pora">Пора</a></h3>
+      <p>Signed local-first Android medication reminder with exact alarms, history and optional account sync.</p>
+      <p><strong>Built with:</strong> React Native, Expo, TypeScript, SQLite, Fastify, PostgreSQL</p>
+      <p><a href="https://github.com/pavel-logachev/pora/releases/latest">Download the Android release →</a></p>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" valign="top">
       <h3><a href="https://github.com/pavel-logachev/portable-agent-os">Portable Agent OS</a></h3>
-      <p>Reversible, capability-aware control layer for Codex, Aider and local agent workflows, with explicit provenance and verified host adapters.</p>
-      <p><strong>Built with:</strong> Python, JSON Schema, CI, signed provenance</p>
-      <p><a href="https://pavel-logachev.github.io/portable-agent-os/">Open the project site →</a></p>
+      <p>Reversible, capability-aware control layer for Codex, Aider and local agent workflows, with explicit provenance, verified host adapters and signed release evidence.</p>
+      <p><strong>Built with:</strong> Python, JSON Schema, CI, signed provenance · <a href="https://pavel-logachev.github.io/portable-agent-os/">Project site →</a></p>
     </td>
   </tr>
 </table>
@@ -51,7 +60,7 @@ I connect business context, software and operations. My background is B2B IT and
 04  Release with documentation and explicit limits
 ```
 
-The public repositories here contain independent products, open-source work and learning labs. Client details and closed operational systems are not published.
+The public repositories here contain independent products and open-source systems. Client details, learning repositories and closed operational systems are not published.
 
 <p align="center">
   Moscow · Russian / English · <a href="https://logachev.net/">logachev.net</a>
