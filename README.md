@@ -9,6 +9,8 @@
   &nbsp;·&nbsp;
   <a href="https://github.com/pavel-logachev/voice-input">Voice Input</a>
   &nbsp;·&nbsp;
+  <a href="https://github.com/pavel-logachev/ai-tender-radar">Tender Radar</a>
+  &nbsp;·&nbsp;
   <a href="https://github.com/pavel-logachev/pora">Пора</a>
   &nbsp;·&nbsp;
   <a href="https://github.com/pavel-logachev/portable-agent-os">Portable Agent OS</a>
@@ -32,9 +34,15 @@
     </td>
   </tr>
   <tr>
-    <td colspan="2" valign="top">
+    <td width="50%" valign="top">
+      <h3><a href="https://github.com/pavel-logachev/ai-tender-radar">AI Tender Radar</a></h3>
+      <p>Production procurement intelligence: bounded document acquisition, evidence-first LLM triage and a human-reviewed lead queue.</p>
+      <p><strong>Stack:</strong> Python · PostgreSQL · LLM contracts · Telegram</p>
+      <p><a href="https://logachev.net/portfolio/tender-radar/">Product case →</a></p>
+    </td>
+    <td width="50%" valign="top">
       <h3><a href="https://github.com/pavel-logachev/portable-agent-os">Portable Agent OS</a></h3>
-      <p>Reversible, capability-aware control layer for Codex, Aider and local agent workflows, with explicit provenance, verified host adapters and signed release evidence.</p>
+      <p>Reversible control layer for Codex, Aider and local agent workflows, with explicit capabilities and signed provenance.</p>
       <p><strong>Built with:</strong> Python, JSON Schema, CI, signed provenance · <a href="https://pavel-logachev.github.io/portable-agent-os/">Project site →</a></p>
     </td>
   </tr>
