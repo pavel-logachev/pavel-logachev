@@ -7,18 +7,30 @@
 <p align="center">
   <a href="https://logachev.net/">Portfolio</a>
   &nbsp;·&nbsp;
-  <a href="https://github.com/pavel-logachev/voice-input">Voice Input</a>
+  <a href="https://logachev.net/portfolio/stock-configurator/">Stock Configurator</a>
   &nbsp;·&nbsp;
-  <a href="https://github.com/pavel-logachev/ai-tender-radar">Tender Radar</a>
+  <a href="https://logachev.net/portfolio/tender-radar/">AI Tender Radar</a>
   &nbsp;·&nbsp;
-  <a href="https://github.com/pavel-logachev/pora">Пора</a>
-  &nbsp;·&nbsp;
-  <a href="https://github.com/pavel-logachev/portable-agent-os">Portable Agent OS</a>
+  <a href="mailto:ai@logachev.net?subject=Project%20inquiry">Contact</a>
 </p>
 
 ## Selected work
 
 <table>
+  <tr>
+    <td width="50%" valign="top">
+      <h3><a href="https://github.com/pavel-logachev/ai-tender-radar">AI Tender Radar</a></h3>
+      <p>Procurement intelligence that turns bounded document acquisition and evidence-first LLM triage into a human-reviewed lead queue.</p>
+      <p><strong>Proof:</strong> public clean-room implementation · 579 tests · Telegram and Excel workflow</p>
+      <p><a href="https://logachev.net/portfolio/tender-radar/">Product case →</a></p>
+    </td>
+    <td width="50%" valign="top">
+      <h3><a href="https://github.com/pavel-logachev/stock-configurator">Stock Configurator</a></h3>
+      <p>Infrastructure-presales MVP that turns free-form requests and distributor stock into reviewable draft specifications.</p>
+      <p><strong>Proof:</strong> Telegram · FastAPI · PostgreSQL · Excel · deterministic reconciliation</p>
+      <p><a href="https://logachev.net/portfolio/stock-configurator/">Product case →</a></p>
+    </td>
+  </tr>
   <tr>
     <td width="50%" valign="top">
       <h3><a href="https://github.com/pavel-logachev/voice-input">Voice Input</a></h3>
@@ -28,25 +40,14 @@
     </td>
     <td width="50%" valign="top">
       <h3><a href="https://github.com/pavel-logachev/pora">Пора</a></h3>
-      <p>Android medication schedules with exact alarms, history and optional sync.</p>
+      <p>Local-first Android medication schedules with reliable alarms, history and optional account sync.</p>
       <p><strong>Stack:</strong> Expo · SQLite · Fastify · PostgreSQL</p>
       <p><a href="https://github.com/pavel-logachev/pora/releases/tag/v1.0.2">Android release →</a></p>
     </td>
   </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <h3><a href="https://github.com/pavel-logachev/ai-tender-radar">AI Tender Radar</a></h3>
-      <p>Production procurement intelligence: bounded document acquisition, evidence-first LLM triage and a human-reviewed lead queue.</p>
-      <p><strong>Stack:</strong> Python · PostgreSQL · LLM contracts · Telegram</p>
-      <p><a href="https://logachev.net/portfolio/tender-radar/">Product case →</a></p>
-    </td>
-    <td width="50%" valign="top">
-      <h3><a href="https://github.com/pavel-logachev/portable-agent-os">Portable Agent OS</a></h3>
-      <p>Reversible control layer for Codex, Aider and local agent workflows, with explicit capabilities and signed provenance.</p>
-      <p><strong>Built with:</strong> Python, JSON Schema, CI, signed provenance · <a href="https://pavel-logachev.github.io/portable-agent-os/">Project site →</a></p>
-    </td>
-  </tr>
 </table>
+
+Also: <a href="https://github.com/pavel-logachev/portable-agent-os"><strong>Portable Agent OS</strong></a> — a reversible, capability-aware control layer for Codex, Aider and local agent workflows.
 
 ## Product engineering from context to release
 
