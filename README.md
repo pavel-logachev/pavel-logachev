@@ -11,6 +11,10 @@
   &nbsp;·&nbsp;
   <a href="https://logachev.net/portfolio/tender-radar/">AI Tender Radar</a>
   &nbsp;·&nbsp;
+  <a href="https://t.me/logachev_ai">Telegram</a>
+  &nbsp;·&nbsp;
+  <a href="https://habr.com/ru/users/pavel-logachev/">Habr</a>
+  &nbsp;·&nbsp;
   <a href="mailto:ai@logachev.net?subject=Project%20inquiry">Contact</a>
 </p>
 
@@ -70,5 +74,5 @@ I connect business context, software and operations. My background is B2B IT and
 The public repositories here contain independent products and open-source systems. Client details, learning repositories and closed operational systems are not published.
 
 <p align="center">
-  Moscow · Russian / English · <a href="https://logachev.net/">logachev.net</a>
+  Moscow · Russian / English · <a href="https://logachev.net/">logachev.net</a> · <a href="https://t.me/logachev_ai">Telegram</a> · <a href="https://habr.com/ru/users/pavel-logachev/">Habr</a>
 </p>
