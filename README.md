@@ -46,7 +46,7 @@
       <h3><a href="https://github.com/pavel-logachev/pora">Пора</a></h3>
       <p>Tested local-first Android medication schedules with exact alarms, history and optional account sync.</p>
       <p><strong>Proof:</strong> signed v1.0.2 APK · Android 7+ · real-use verification</p>
-      <p><a href="https://github.com/pavel-logachev/pora/releases/latest">Stable Android release →</a></p>
+      <p><a href="https://logachev.net/portfolio/pora/">Product case →</a> · <a href="https://github.com/pavel-logachev/pora/releases/latest">Stable Android release →</a></p>
     </td>
   </tr>
 </table>
