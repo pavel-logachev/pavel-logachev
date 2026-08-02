@@ -44,9 +44,9 @@
     </td>
     <td width="50%" valign="top">
       <h3><a href="https://github.com/pavel-logachev/pora">Пора</a></h3>
-      <p>Local-first Android medication schedules with reliable alarms, history and optional account sync.</p>
-      <p><strong>Stack:</strong> Expo · SQLite · Fastify · PostgreSQL</p>
-      <p><a href="https://github.com/pavel-logachev/pora/releases/tag/v1.0.2">Android release →</a></p>
+      <p>Tested local-first Android medication schedules with exact alarms, history and optional account sync.</p>
+      <p><strong>Proof:</strong> signed v1.0.2 APK · Android 7+ · real-use verification</p>
+      <p><a href="https://github.com/pavel-logachev/pora/releases/latest">Stable Android release →</a></p>
     </td>
   </tr>
 </table>
