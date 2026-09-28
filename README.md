@@ -71,7 +71,7 @@ I connect business context, software and operations. My background is B2B IT and
 3. **Verify** failure paths and real environments.
 4. **Release** with documentation and explicit limits.
 
-The public repositories here include independent products, open-source systems and selected learning projects. Client details and closed operational systems are not published.
+The public repositories here contain independent products and open-source systems. Client details and closed operational systems are not published.
 
 <p align="center">
   Moscow · Russian / English · <a href="https://logachev.net/">logachev.net</a> · <a href="https://t.me/logachev_ai">Telegram</a> · <a href="https://habr.com/ru/users/pavel-logachev/">Habr</a>
