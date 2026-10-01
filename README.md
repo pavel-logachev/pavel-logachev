@@ -27,7 +27,7 @@
     <td width="50%" valign="top">
       <h3><a href="https://github.com/pavel-logachev/ai-tender-radar">AI Tender Radar</a></h3>
       <p>Разведка по закупкам: ограниченный сбор документов и LLM-разбор с опорой на доказательства превращают поток тендеров в очередь лидов, которую проверяет человек.</p>
-      <p><strong>Проверить:</strong> публичная clean-room версия · 579 тестов · Telegram и Excel</p>
+      <p><strong>Проверить:</strong> публичная clean-room версия · 767 тестов · агентный контур · Telegram и Excel</p>
       <p><a href="https://logachev.net/portfolio/tender-radar/">Кейс →</a></p>
     </td>
     <td width="50%" valign="top">
@@ -76,7 +76,7 @@
 
 I implement AI agents for business workflows. The agent prepares, the human decides: the model handles semantic work, while code owns integrations, validation, security and reproducibility. My background is B2B IT and systems integration; my product work spans local-first applications, internal tools and practical AI automation.
 
-- **[AI Tender Radar](https://github.com/pavel-logachev/ai-tender-radar)** — procurement intelligence with bounded document acquisition and evidence-first LLM triage; public clean-room edition, 579 tests.
+- **[AI Tender Radar](https://github.com/pavel-logachev/ai-tender-radar)** — procurement intelligence with bounded document acquisition and evidence-first LLM triage; public clean-room edition with the agent-first core, 767 tests.
 - **[Stock Configurator](https://github.com/pavel-logachev/stock-configurator)** — infrastructure-presales MVP that turns free-form requests and distributor stock into reviewable draft specifications.
 - **[Voice Input](https://github.com/pavel-logachev/voice-input)** — local-first Windows dictation for Russian speech.
 - **[Pora](https://github.com/pavel-logachev/pora)** — local-first Android medication reminders with exact alarms and history.
