@@ -26,13 +26,13 @@
   <tr>
     <td width="50%" valign="top">
       <h3><a href="https://github.com/pavel-logachev/ai-tender-radar">AI Tender Radar</a></h3>
-      <p>Разведка по закупкам: ограниченный сбор документов и LLM-разбор с опорой на доказательства превращают поток тендеров в очередь лидов, которую проверяет человек.</p>
-      <p><strong>Проверить:</strong> публичная clean-room версия · 767 тестов · агентный контур · Telegram и Excel</p>
+      <p>Разведка по закупкам: ограниченный сбор документов и разбор языковой моделью с опорой на доказательства превращают поток тендеров в очередь лидов, которую проверяет человек.</p>
+      <p><strong>Проверить:</strong> публичная версия «с чистого листа» · 767 тестов · агентный контур · Telegram и Excel</p>
       <p><a href="https://logachev.net/portfolio/tender-radar/">Кейс →</a></p>
     </td>
     <td width="50%" valign="top">
       <h3><a href="https://github.com/pavel-logachev/stock-configurator">Stock Configurator</a></h3>
-      <p>MVP для presales в инфраструктурных продажах: свободный запрос и складские остатки дистрибьютора превращаются в черновик спецификации с явными допущениями.</p>
+      <p>MVP для пресейла в инфраструктурных продажах: свободный запрос и складские остатки дистрибьютора превращаются в черновик спецификации с явными допущениями.</p>
       <p><strong>Стек:</strong> Telegram · FastAPI · PostgreSQL · Excel · детерминированная сверка</p>
       <p><a href="https://logachev.net/portfolio/stock-configurator/">Кейс →</a></p>
     </td>
@@ -46,7 +46,7 @@
     </td>
     <td width="50%" valign="top">
       <h3><a href="https://github.com/pavel-logachev/pora">Пора</a></h3>
-      <p>Local-first Android-приложение для расписания лекарств: точные напоминания, история приёмов, офлайн-справочник ЕСКЛП, светлая и тёмная тема.</p>
+      <p>Android-приложение для расписания лекарств, которое работает без аккаунта и сервера: точные напоминания, история приёмов, офлайн-справочник ЕСКЛП, светлая и тёмная тема.</p>
       <p><strong>Проверить:</strong> подписанный APK 1.1.0 · Android 7+ · 78 тестов</p>
       <p><a href="https://logachev.net/portfolio/pora/">Кейс →</a> · <a href="https://github.com/pavel-logachev/pora/releases/latest">Релиз →</a></p>
     </td>
@@ -67,19 +67,5 @@
 В публичных репозиториях лежат самостоятельные продукты и открытые системы. Данные клиентов и закрытые рабочие системы не публикуются.
 
 <p align="center">
-  Москва · русский / English · <a href="https://logachev.net/">logachev.net</a> · <a href="https://t.me/pavel_logachev">@pavel_logachev</a> · <a href="https://t.me/logachev_ai">канал</a> · <a href="https://habr.com/ru/users/pavel-logachev/">Habr</a>
+  Москва · <a href="https://logachev.net/">logachev.net</a> · <a href="https://t.me/pavel_logachev">@pavel_logachev</a> · <a href="https://t.me/logachev_ai">канал</a> · <a href="https://habr.com/ru/users/pavel-logachev/">Habr</a>
 </p>
-
----
-
-## English
-
-I implement AI agents for business workflows. The agent prepares, the human decides: the model handles semantic work, while code owns integrations, validation, security and reproducibility. My background is B2B IT and systems integration; my product work spans local-first applications, internal tools and practical AI automation.
-
-- **[AI Tender Radar](https://github.com/pavel-logachev/ai-tender-radar)** — procurement intelligence with bounded document acquisition and evidence-first LLM triage; public clean-room edition with the agent-first core, 767 tests.
-- **[Stock Configurator](https://github.com/pavel-logachev/stock-configurator)** — infrastructure-presales MVP that turns free-form requests and distributor stock into reviewable draft specifications.
-- **[Voice Input](https://github.com/pavel-logachev/voice-input)** — Windows tray dictation: hold a hotkey, speak, and the text appears in the active field (OpenAI recognition with your own API key).
-- **[Pora](https://github.com/pavel-logachev/pora)** — local-first Android medication reminders with exact alarms, history and an offline medicine directory (ЕСКЛП).
-- **[Portable Agent OS](https://github.com/pavel-logachev/portable-agent-os)** — reversible, capability-aware control layer for local AI-agent workflows.
-
-Contact: [ai@logachev.net](mailto:ai@logachev.net) · [Telegram](https://t.me/pavel_logachev) · [logachev.net](https://logachev.net/)

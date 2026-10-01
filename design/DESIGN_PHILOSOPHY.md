@@ -1,11 +1,11 @@
-# Dispatch Room
+# Диспетчерская
 
-The profile follows the visual language of logachev.net: a dark dispatch room where a technical profile is read as a working system, not a decorated résumé. One decisive statement, one observable route, one quiet evidence band.
+Профиль следует визуальному языку logachev.net: тёмная диспетчерская, где технический профиль читается как работающая система, а не как украшенное резюме. Одно решительное утверждение, один наблюдаемый маршрут, одна тихая полоса подтверждений.
 
-Near-black ink carries the field. Steel marks the data stream, lime marks the agent working inside its bounds, and a single white flash marks the moment a person makes the decision. Color is semantic, never ornamental, and matches the site tokens: `#05070a` background, `#e9eef2` text, `#c3f451` lime, `#7f99ad` steel.
+Поле держит почти чёрный цвет. Сталь обозначает поток данных, лайм — агента, работающего в своих границах, а единственная белая вспышка — момент, когда решение принимает человек. Цвет смысловой, а не декоративный, и совпадает с токенами сайта: фон `#05070a`, текст `#e9eef2`, лайм `#c3f451`, сталь `#7f99ad`.
 
-Typography is Onest for statements and a monospace face for small technical labels, set like reference marks on a drawing. Thin hairlines separate zones. No effect exists only to attract attention, and the composition must stay legible when reduced to a social preview.
+Типографика: Onest для утверждений и моноширинный шрифт для мелких технических подписей, расставленных как пометки на чертеже. Тонкие линии разделяют зоны. Ни один эффект не существует лишь ради внимания, а композиция должна оставаться читаемой в уменьшении до социального превью.
 
-The graphic is a controlled signal moving through three stages: incoming data, an agent bounded by an explicit frame, and a verified output that reaches a person. It must not resemble generic circuitry or an AI network.
+Графика — управляемый сигнал, проходящий три стадии: входящие данные, агент в явно заданных границах и проверенный результат, который доходит до человека. Она не должна напоминать типовые схемы микросхем или «нейросеть».
 
-`scripts/render_assets.py` regenerates `assets/profile-banner.png` and `assets/social-preview.png` from these rules. Fonts in `scripts/fonts/` are Onest (SIL OFL 1.1).
+`scripts/render_assets.py` пересоздаёт `assets/profile-banner.png` и `assets/social-preview.png` по этим правилам. Шрифты в `scripts/fonts/` — Onest (SIL OFL 1.1).
