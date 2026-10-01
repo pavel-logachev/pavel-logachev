@@ -40,9 +40,9 @@
   <tr>
     <td width="50%" valign="top">
       <h3><a href="https://github.com/pavel-logachev/voice-input">Voice Input</a></h3>
-      <p>Локальная диктовка для Windows: русская речь вставляется в любое активное поле ввода по глобальной горячей клавише, без интернета.</p>
-      <p><strong>Стек:</strong> .NET · WPF · WASAPI · GigaAM</p>
-      <p><a href="https://github.com/pavel-logachev/voice-input/releases/latest">Релиз →</a></p>
+      <p>Диктовка для Windows в трее: удерживайте горячую клавишу, говорите, и текст появится в активном поле ввода. Распознаёт OpenAI по вашему API-ключу, ключ хранится зашифрованным.</p>
+      <p><strong>Стек:</strong> .NET 10 · WPF · WASAPI · OpenAI · 146 тестов</p>
+      <p><a href="https://github.com/pavel-logachev/voice-input/releases/latest">Релиз 1.0.0 →</a></p>
     </td>
     <td width="50%" valign="top">
       <h3><a href="https://github.com/pavel-logachev/pora">Пора</a></h3>
@@ -78,7 +78,7 @@ I implement AI agents for business workflows. The agent prepares, the human deci
 
 - **[AI Tender Radar](https://github.com/pavel-logachev/ai-tender-radar)** — procurement intelligence with bounded document acquisition and evidence-first LLM triage; public clean-room edition with the agent-first core, 767 tests.
 - **[Stock Configurator](https://github.com/pavel-logachev/stock-configurator)** — infrastructure-presales MVP that turns free-form requests and distributor stock into reviewable draft specifications.
-- **[Voice Input](https://github.com/pavel-logachev/voice-input)** — local-first Windows dictation for Russian speech.
+- **[Voice Input](https://github.com/pavel-logachev/voice-input)** — Windows tray dictation: hold a hotkey, speak, and the text appears in the active field (OpenAI recognition with your own API key).
 - **[Pora](https://github.com/pavel-logachev/pora)** — local-first Android medication reminders with exact alarms and history.
 - **[Portable Agent OS](https://github.com/pavel-logachev/portable-agent-os)** — reversible, capability-aware control layer for local AI-agent workflows.
 
