@@ -141,7 +141,7 @@ def flow(c: Canvas, x0: float, x1: float, cy: float, height: float, unit: float,
     c.dot(end, cy, 5.5 * unit, FG, 255, glow=14 * unit)
 
     if labels:
-        face = font(MONO, 12 * unit)
+        face = font(MONO, 15 * unit)
         y = cy + bh / 2 + 30 * unit
         c.text((x0, y), "ПОТОК ДАННЫХ", face, STEEL, spacing=1.6 * unit)
         c.text((gate0, y), "АГЕНТ В ГРАНИЦАХ", face, LIME, spacing=1.6 * unit)
@@ -154,20 +154,20 @@ def render_banner() -> None:
     c.hline(92, 1508, 64)
     c.hline(92, 1508, 322)
 
-    mono = font(MONO, 17)
-    c.text((94, 46), "ПАВЕЛ ЛОГАЧЕВ / ВНЕДРЕНИЕ ИИ-АГЕНТОВ", mono, MUTED, spacing=2.2)
+    mono = font(MONO, 20)
+    c.text((94, 48), "ПАВЕЛ ЛОГАЧЕВ / ВНЕДРЕНИЕ ИИ-АГЕНТОВ", mono, MUTED, spacing=2.2)
     big = font(BOLD, 76)
     c.text((90, 168), "Агент готовит", big, FG)
     c.text((90, 252), "Человек решает", big, LIME)
 
     flow(c, 800, 1500, 176, 190, 1.0)
 
-    mono_s = font(MONO, 15)
-    c.text((94, 358), "LOCAL-FIRST", mono_s, FG, spacing=2.2)
-    c.text((300, 358), "ИИ-АВТОМАТИЗАЦИЯ", mono_s, FG, spacing=2.2)
-    c.text((548, 358), "ВНУТРЕННИЕ ИНСТРУМЕНТЫ", mono_s, FG, spacing=2.2)
+    mono_s = font(MONO, 19)
+    c.text((94, 360), "LOCAL-FIRST", mono_s, FG, spacing=2.2)
+    c.text((330, 360), "ИИ-АВТОМАТИЗАЦИЯ", mono_s, FG, spacing=2.2)
+    c.text((630, 360), "ВНУТРЕННИЕ ИНСТРУМЕНТЫ", mono_s, FG, spacing=2.2)
     note = "LOGACHEV.NET"
-    c.text((1508 - c.text_width(note, mono_s, 2.2), 358), note, mono_s, LIME, spacing=2.2)
+    c.text((1508 - c.text_width(note, mono_s, 2.2), 360), note, mono_s, LIME, spacing=2.2)
     c.finish((2400, 600), OUT / "profile-banner.png")
 
 
