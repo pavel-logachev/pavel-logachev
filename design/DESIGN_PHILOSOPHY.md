@@ -1,11 +1,11 @@
-# Verified Signal
+# Dispatch Room
 
-Verified Signal treats a technical profile as an editorial instrument rather than a decorated résumé. Space carries structure: one decisive statement, one observable route, and one quiet evidence band. The composition should feel meticulously engineered, with every interval and alignment refined until the system reads before the words do.
+The profile follows the visual language of logachev.net: a dark dispatch room where a technical profile is read as a working system, not a decorated résumé. One decisive statement, one observable route, one quiet evidence band.
 
-Mineral paper and deep ink navy establish material calm. Disciplined cobalt marks movement through the system, while a single warm red checkpoint indicates the moment when a person confirms a critical decision. Color is semantic rather than ornamental, calibrated with the restraint and confidence of master-level execution.
+Near-black ink carries the field. Steel marks the data stream, lime marks the agent working inside its bounds, and a single white flash marks the moment a person makes the decision. Color is semantic, never ornamental, and matches the site tokens: `#05070a` background, `#e9eef2` text, `#c3f451` lime, `#7f99ad` steel.
 
-Scale creates a measured rhythm between identity and proof. A large name holds the field; small technical labels behave like reference marks on a carefully maintained drawing. Thin rules, modular zones and numbered points suggest a chain of custody for work moving from context to release. Typography remains sparse and exact, appearing deliberately placed after countless refinements.
+Typography is Onest for statements and a monospace face for small technical labels, set like reference marks on a drawing. Thin hairlines separate zones. No effect exists only to attract attention, and the composition must stay legible when reduced to a social preview.
 
-The main graphic is a controlled signal travelling through distinct stages. It should not resemble generic circuitry or an AI network. Instead, it records progression through input, interpretation, verification and output. Those familiar with operational systems should sense auditability; everyone else should experience a calm, coherent visual route.
+The graphic is a controlled signal moving through three stages: incoming data, an agent bounded by an explicit frame, and a verified output that reaches a person. It must not resemble generic circuitry or an AI network.
 
-Craft is visible in restraint. No effect exists only to attract attention, no object competes for hierarchy, and no texture compromises legibility. The final image must look painstakingly made by someone at the top of their field—precise at full scale, clean in GitHub’s responsive layout, and recognizable when reduced to a social preview.
+`scripts/render_assets.py` regenerates `assets/profile-banner.png` and `assets/social-preview.png` from these rules. Fonts in `scripts/fonts/` are Onest (SIL OFL 1.1).

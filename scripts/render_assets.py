@@ -1,3 +1,9 @@
+"""Render the GitHub profile banner and social preview in the logachev.net style.
+
+Palette and metaphor mirror the site: a dark dispatch room where steel particles are
+the data stream, lime is the agent working inside its bounds, and the white flash is
+the human decision.
+"""
 from __future__ import annotations
 
 from pathlib import Path
@@ -9,126 +15,185 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "assets"
 OUT.mkdir(parents=True, exist_ok=True)
 
-INK = "#10243A"
-PAPER = "#F1EFE8"
-COBALT = "#3558D7"
-RED = "#D95A43"
-MUTED = "#4F5E6E"
-HAIR = "#CBD0D2"
-WHITE = "#F9F8F4"
+BG = (5, 7, 10)
+BG2 = (9, 13, 18)
+FG = (233, 238, 242)
+MUTED = (143, 154, 163)
+LIME = (195, 244, 81)
+STEEL = (127, 153, 173)
+HAIR = (233, 238, 242, 26)
 
-FONT_DIR = Path("C:/Windows/Fonts")
-SANS = FONT_DIR / "bahnschrift.ttf"
-SERIF = FONT_DIR / "georgia.ttf"
+FONTS = Path(__file__).resolve().parent / "fonts"
+BOLD = FONTS / "Onest-Bold.ttf"
+MEDIUM = FONTS / "Onest-Medium.ttf"
+MONO = Path("C:/Windows/Fonts/consola.ttf")
 
-
-def font(path: Path, size: int) -> ImageFont.FreeTypeFont:
-    return ImageFont.truetype(str(path), size=size)
-
-
-def noise_layer(size: tuple[int, int], opacity: int = 8) -> Image.Image:
-    rng = Random(2417)
-    layer = Image.new("RGBA", size, (0, 0, 0, 0))
-    px = layer.load()
-    for y in range(size[1]):
-        for x in range(size[0]):
-            n = rng.randrange(0, opacity + 1)
-            px[x, y] = (16, 36, 58, n)
-    return layer.filter(ImageFilter.GaussianBlur(0.25))
+SS = 3  # supersampling factor, downscaled at the end
 
 
-def tracking(draw: ImageDraw.ImageDraw, xy: tuple[int, int], text: str, face: ImageFont.FreeTypeFont, fill: str, spacing: int) -> None:
-    x, y = xy
-    for char in text:
-        draw.text((x, y), char, font=face, fill=fill)
-        x += int(draw.textlength(char, font=face)) + spacing
+def font(path: Path, size: float) -> ImageFont.FreeTypeFont:
+    return ImageFont.truetype(str(path), size=int(size * SS))
 
 
-def line(draw: ImageDraw.ImageDraw, points: list[tuple[int, int]], fill: str, width: int = 2) -> None:
-    draw.line(points, fill=fill, width=width, joint="curve")
+class Canvas:
+    """Drawing surface in logical units; everything is scaled by SS internally."""
+
+    def __init__(self, width: int, height: int) -> None:
+        self.w, self.h = width, height
+        self.im = Image.new("RGBA", (width * SS, height * SS), BG + (255,))
+        self.glow = Image.new("RGBA", self.im.size, (0, 0, 0, 0))
+        self._background()
+
+    def _background(self) -> None:
+        d = ImageDraw.Draw(self.im)
+        for y in range(self.h * SS):
+            t = y / (self.h * SS)
+            c = tuple(int(BG[i] + (BG2[i] - BG[i]) * t) for i in range(3))
+            d.line((0, y, self.w * SS, y), fill=c + (255,))
+
+    def p(self, v: float) -> int:
+        return int(v * SS)
+
+    def layer(self) -> tuple[Image.Image, ImageDraw.ImageDraw]:
+        im = Image.new("RGBA", self.im.size, (0, 0, 0, 0))
+        return im, ImageDraw.Draw(im)
+
+    def paste(self, layer: Image.Image) -> None:
+        self.im = Image.alpha_composite(self.im, layer)
+
+    def hline(self, x0: float, x1: float, y: float, fill=HAIR, width: float = 1) -> None:
+        layer, d = self.layer()
+        d.line((self.p(x0), self.p(y), self.p(x1), self.p(y)), fill=fill, width=max(1, self.p(width)))
+        self.paste(layer)
+
+    def text(self, xy, text: str, face: ImageFont.FreeTypeFont, fill, spacing: float = 0, anchor: str = "ls") -> None:
+        layer, d = self.layer()
+        x, y = self.p(xy[0]), self.p(xy[1])
+        if spacing:
+            for ch in text:
+                d.text((x, y), ch, font=face, fill=fill, anchor=anchor)
+                x += int(d.textlength(ch, font=face)) + self.p(spacing)
+        else:
+            d.text((x, y), text, font=face, fill=fill, anchor=anchor)
+        self.paste(layer)
+
+    def text_width(self, text: str, face: ImageFont.FreeTypeFont, spacing: float = 0) -> float:
+        d = ImageDraw.Draw(self.im)
+        return (sum(d.textlength(ch, font=face) + self.p(spacing) for ch in text) if spacing else d.textlength(text, font=face)) / SS
+
+    def dot(self, x: float, y: float, r: float, fill, alpha: int = 255, glow: float = 0) -> None:
+        if glow:
+            g, gd = self.layer()
+            gr = self.p(r + glow)
+            gd.ellipse((self.p(x) - gr, self.p(y) - gr, self.p(x) + gr, self.p(y) + gr), fill=fill + (int(alpha * 0.9),))
+            g = g.filter(ImageFilter.GaussianBlur(self.p(glow * 0.7)))
+            self.paste(g)
+        layer, d = self.layer()
+        rr = self.p(r)
+        d.ellipse((self.p(x) - rr, self.p(y) - rr, self.p(x) + rr, self.p(y) + rr), fill=fill + (alpha,))
+        self.paste(layer)
+
+    def finish(self, size: tuple[int, int], dest: Path) -> None:
+        out = self.im.convert("RGB").resize(size, Image.LANCZOS)
+        out.save(dest, optimize=True)
 
 
-def route_graph(draw: ImageDraw.ImageDraw, box: tuple[int, int, int, int], scale: float = 1.0) -> None:
-    x0, y0, x1, y1 = box
-    cy = (y0 + y1) // 2
-    points = [
-        (x0, cy),
-        (x0 + int(122 * scale), cy),
-        (x0 + int(196 * scale), y0 + int(52 * scale)),
-        (x0 + int(302 * scale), y0 + int(52 * scale)),
-        (x0 + int(376 * scale), cy),
-        (x1, cy),
-    ]
-    line(draw, points, COBALT, max(3, int(4 * scale)))
+def flow(c: Canvas, x0: float, x1: float, cy: float, height: float, unit: float, labels: bool = True) -> None:
+    """Data stream -> bounded agent -> human decision."""
+    rng = Random(2026)
+    span = x1 - x0
+    gate0 = x0 + span * 0.36
+    gate1 = x0 + span * 0.70
+    end = x0 + span * 0.96
 
-    nodes = [
-        (points[0][0], points[0][1], "01", INK),
-        (points[2][0], points[2][1], "02", COBALT),
-        (points[3][0], points[3][1], "03", RED),
-        (points[-1][0], points[-1][1], "04", INK),
-    ]
-    small = font(SANS, max(15, int(17 * scale)))
-    for x, y, label, color in nodes:
-        r = max(8, int(11 * scale))
-        draw.ellipse((x - r, y - r, x + r, y + r), fill=WHITE, outline=color, width=max(2, int(3 * scale)))
-        draw.text((x - int(10 * scale), y + int(18 * scale)), label, font=small, fill=color)
+    # inbound steel stream converging into the agent boundary
+    layer, d = c.layer()
+    d.line((c.p(x0), c.p(cy), c.p(gate0), c.p(cy)), fill=STEEL + (70,), width=max(1, c.p(1.2 * unit)))
+    c.paste(layer)
+    for _ in range(int(150 * unit * unit)):
+        t = rng.random() ** 0.8
+        x = x0 + (gate0 - x0) * t
+        spread = height * 0.5 * (1 - t) ** 1.4 + 1.5 * unit
+        y = cy + rng.uniform(-spread, spread)
+        a = int(60 + 150 * t)
+        c.dot(x, y, rng.uniform(0.9, 2.1) * unit, STEEL, a)
 
-    red_x, red_y = points[3]
-    draw.rectangle(
-        (red_x - int(22 * scale), red_y - int(52 * scale), red_x + int(22 * scale), red_y - int(28 * scale)),
-        fill=RED,
-    )
+    # agent boundary, lime
+    bh = height * 0.62
+    layer, d = c.layer()
+    box = (c.p(gate0), c.p(cy - bh / 2), c.p(gate1), c.p(cy + bh / 2))
+    d.rounded_rectangle(box, radius=c.p(8 * unit), fill=LIME + (14,), outline=LIME + (190,), width=max(1, c.p(1.6 * unit)))
+    c.paste(layer)
+    for i in range(7):
+        t = (i + 0.5) / 7
+        x = gate0 + (gate1 - gate0) * t
+        y = cy + (rng.random() - 0.5) * bh * 0.55 * (1 - abs(t - 0.5))
+        c.dot(x, y, 2.4 * unit, LIME, 235, glow=4 * unit)
+
+    # single verified output line to the human decision
+    layer, d = c.layer()
+    d.line((c.p(gate1), c.p(cy), c.p(end), c.p(cy)), fill=LIME + (200,), width=max(1, c.p(1.8 * unit)))
+    c.paste(layer)
+    for i in range(4):
+        c.dot(gate1 + (end - gate1) * (i + 0.6) / 4.6, cy, 1.8 * unit, LIME, 220)
+
+    # human decision: white flash
+    c.dot(end, cy, 5.5 * unit, FG, 255, glow=14 * unit)
+
+    if labels:
+        face = font(MONO, 12 * unit)
+        y = cy + bh / 2 + 30 * unit
+        c.text((x0, y), "ПОТОК ДАННЫХ", face, STEEL, spacing=1.6 * unit)
+        c.text((gate0, y), "АГЕНТ В ГРАНИЦАХ", face, LIME, spacing=1.6 * unit)
+        label = "РЕШЕНИЕ ЧЕЛОВЕКА"
+        c.text((end - c.text_width(label, face, 1.6 * unit) + 14 * unit, y), label, face, FG, spacing=1.6 * unit)
 
 
 def render_banner() -> None:
-    size = (1600, 400)
-    im = Image.new("RGB", size, PAPER)
-    draw = ImageDraw.Draw(im)
+    c = Canvas(1600, 400)
+    c.hline(92, 1508, 64)
+    c.hline(92, 1508, 322)
 
-    draw.rectangle((0, 0, 22, size[1]), fill=COBALT)
-    draw.rectangle((22, 0, 28, size[1]), fill=RED)
-    draw.line((92, 64, 1508, 64), fill=HAIR, width=2)
-    draw.line((92, 322, 1508, 322), fill=HAIR, width=2)
+    mono = font(MONO, 17)
+    c.text((94, 46), "ПАВЕЛ ЛОГАЧЕВ / ВНЕДРЕНИЕ ИИ-АГЕНТОВ", mono, MUTED, spacing=2.2)
+    big = font(BOLD, 76)
+    c.text((90, 168), "Агент готовит", big, FG)
+    c.text((90, 252), "Человек решает", big, LIME)
 
-    tracking(draw, (94, 27), "PAVEL LOGACHEV / PRODUCT ENGINEERING", font(SANS, 19), MUTED, 2)
-    draw.text((92, 92), "Pavel", font=font(SERIF, 64), fill=INK)
-    draw.text((92, 158), "Logachev", font=font(SERIF, 64), fill=INK)
-    draw.text((96, 252), "CONTEXT / SOFTWARE / RELEASE", font=font(SANS, 24), fill=COBALT)
+    flow(c, 800, 1500, 176, 190, 1.0)
 
-    route_graph(draw, (866, 96, 1460, 286), 1.0)
-    tracking(draw, (94, 348), "LOCAL-FIRST", font(SANS, 17), INK, 2)
-    tracking(draw, (392, 348), "AI AUTOMATION", font(SANS, 17), INK, 2)
-    tracking(draw, (752, 348), "INTERNAL TOOLS", font(SANS, 17), INK, 2)
-    tracking(draw, (1155, 348), "MOSCOW / 2026", font(SANS, 17), MUTED, 2)
-
-    im = Image.alpha_composite(im.convert("RGBA"), noise_layer(size)).convert("RGB")
-    im.save(OUT / "profile-banner.png", optimize=True, quality=94)
+    mono_s = font(MONO, 15)
+    c.text((94, 358), "LOCAL-FIRST", mono_s, FG, spacing=2.2)
+    c.text((300, 358), "ИИ-АВТОМАТИЗАЦИЯ", mono_s, FG, spacing=2.2)
+    c.text((548, 358), "ВНУТРЕННИЕ ИНСТРУМЕНТЫ", mono_s, FG, spacing=2.2)
+    note = "LOGACHEV.NET"
+    c.text((1508 - c.text_width(note, mono_s, 2.2), 358), note, mono_s, LIME, spacing=2.2)
+    c.finish((2400, 600), OUT / "profile-banner.png")
 
 
 def render_social() -> None:
-    size = (1280, 640)
-    im = Image.new("RGB", size, PAPER)
-    draw = ImageDraw.Draw(im)
+    c = Canvas(1280, 640)
+    c.hline(80, 1200, 84)
+    c.hline(80, 1200, 548)
 
-    draw.rectangle((0, 0, 26, size[1]), fill=COBALT)
-    draw.rectangle((26, 0, 34, size[1]), fill=RED)
-    draw.line((94, 82, 1186, 82), fill=HAIR, width=2)
-    draw.line((94, 532, 1186, 532), fill=HAIR, width=2)
+    mono = font(MONO, 18)
+    c.text((82, 62), "ПАВЕЛ ЛОГАЧЕВ / ВНЕДРЕНИЕ ИИ-АГЕНТОВ", mono, MUTED, spacing=2.4)
+    big = font(BOLD, 92)
+    c.text((78, 222), "Агент готовит", big, FG)
+    c.text((78, 324), "Человек решает", big, LIME)
 
-    tracking(draw, (96, 38), "PRODUCT ENGINEERING / MOSCOW", font(SANS, 18), MUTED, 2)
-    draw.text((92, 132), "Pavel", font=font(SERIF, 86), fill=INK)
-    draw.text((92, 220), "Logachev", font=font(SERIF, 86), fill=INK)
-    draw.text((98, 340), "Digital products and practical automation", font=font(SANS, 28), fill=COBALT)
-    route_graph(draw, (652, 188, 1138, 430), 0.82)
+    medium = font(MEDIUM, 25)
+    c.text((82, 392), "Внедряю ИИ-агентов под задачи бизнеса:", medium, MUTED)
+    c.text((82, 426), "заявки, расчёты, документы, отчёты.", medium, MUTED)
 
-    tracking(draw, (96, 566), "CONTEXT", font(SANS, 16), INK, 2)
-    tracking(draw, (336, 566), "BUILD", font(SANS, 16), INK, 2)
-    tracking(draw, (544, 566), "VERIFY", font(SANS, 16), INK, 2)
-    tracking(draw, (784, 566), "RELEASE", font(SANS, 16), INK, 2)
-    tracking(draw, (1038, 566), "LOGACHEV.NET", font(SANS, 16), MUTED, 1)
-
-    im = Image.alpha_composite(im.convert("RGBA"), noise_layer(size)).convert("RGB")
-    im.save(OUT / "social-preview.png", optimize=True, quality=94)
+    flow(c, 80, 1200, 490, 90, 1.0, labels=False)
+    mono_s = font(MONO, 16)
+    c.text((82, 592), "LOCAL-FIRST", mono_s, FG, spacing=2.2)
+    c.text((290, 592), "ИИ-АВТОМАТИЗАЦИЯ", mono_s, FG, spacing=2.2)
+    c.text((560, 592), "ВНУТРЕННИЕ ИНСТРУМЕНТЫ", mono_s, FG, spacing=2.2)
+    note = "LOGACHEV.NET"
+    c.text((1200 - c.text_width(note, mono_s, 2.2), 592), note, mono_s, LIME, spacing=2.2)
+    c.finish((1280, 640), OUT / "social-preview.png")
 
 
 if __name__ == "__main__":
