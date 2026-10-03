@@ -163,7 +163,7 @@ def render_banner() -> None:
     flow(c, 800, 1500, 176, 190, 1.0)
 
     mono_s = font(MONO, 19)
-    c.text((94, 360), "LOCAL-FIRST", mono_s, FG, spacing=2.2)
+    c.text((94, 360), "ПРИЛОЖЕНИЯ", mono_s, FG, spacing=2.2)
     c.text((330, 360), "ИИ-АВТОМАТИЗАЦИЯ", mono_s, FG, spacing=2.2)
     c.text((630, 360), "ВНУТРЕННИЕ ИНСТРУМЕНТЫ", mono_s, FG, spacing=2.2)
     note = "LOGACHEV.NET"
@@ -188,7 +188,7 @@ def render_social() -> None:
 
     flow(c, 80, 1200, 490, 90, 1.0, labels=False)
     mono_s = font(MONO, 16)
-    c.text((82, 592), "LOCAL-FIRST", mono_s, FG, spacing=2.2)
+    c.text((82, 592), "ПРИЛОЖЕНИЯ", mono_s, FG, spacing=2.2)
     c.text((290, 592), "ИИ-АВТОМАТИЗАЦИЯ", mono_s, FG, spacing=2.2)
     c.text((560, 592), "ВНУТРЕННИЕ ИНСТРУМЕНТЫ", mono_s, FG, spacing=2.2)
     note = "LOGACHEV.NET"
