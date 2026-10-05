@@ -13,8 +13,6 @@
   &nbsp;·&nbsp;
   <a href="https://t.me/logachev_ai">Telegram-канал</a>
   &nbsp;·&nbsp;
-  <a href="https://habr.com/ru/users/pavel-logachev/">Habr</a>
-  &nbsp;·&nbsp;
   <a href="mailto:ai@logachev.net?subject=%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83">Написать</a>
 </p>
 
@@ -73,5 +71,5 @@
 В публичных репозиториях лежат самостоятельные продукты и открытые системы. Данные клиентов и закрытые рабочие системы не публикуются.
 
 <p align="center">
-  Москва · <a href="https://logachev.net/">logachev.net</a> · <a href="https://t.me/pavel_logachev">@pavel_logachev</a> · <a href="https://t.me/logachev_ai">канал</a> · <a href="https://habr.com/ru/users/pavel-logachev/">Habr</a>
+  Москва · <a href="https://logachev.net/">logachev.net</a> · <a href="https://t.me/pavel_logachev">@pavel_logachev</a> · <a href="https://t.me/logachev_ai">канал</a>
 </p>
