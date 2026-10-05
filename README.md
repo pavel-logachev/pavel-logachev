@@ -51,9 +51,21 @@
       <p><a href="https://logachev.net/portfolio/pora/">Кейс →</a> · <a href="https://github.com/pavel-logachev/pora/releases/latest">Релиз →</a></p>
     </td>
   </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3><a href="https://github.com/pavel-logachev/dsh-mobile">DSH Mobile</a></h3>
+      <p>Неофициальное Android-приложение для DeepSeek Harness: чаты проектов, задачи с телефона и ответы в реальном времени. Подключается по Wi‑Fi или Tailscale; модели и инструменты остаются на компьютере.</p>
+      <p><strong>Проверить:</strong> подписанный APK 0.4.0 · Android 8+ · 142 + 85 тестов · QR-привязка</p>
+      <p><a href="https://github.com/pavel-logachev/dsh-mobile/releases/latest">Релиз 0.4.0 →</a> · <a href="https://github.com/pavel-logachev/dsh-mobile/blob/main/docs/SETUP.md">Установка →</a></p>
+    </td>
+    <td width="50%" valign="top">
+      <h3><a href="https://github.com/pavel-logachev/portable-agent-os">Portable Agent OS</a></h3>
+      <p>Обратимый слой управления для Codex, Aider и локальных агентных процессов. Общие правила задают, что агенту разрешено, где нужно подтверждение человека, как проверить результат и откатить изменения.</p>
+      <p><strong>Стек:</strong> Python 3.11+ · JSON-контракты · открытый код под Apache-2.0</p>
+      <p><a href="https://pavel-logachev.github.io/portable-agent-os/">Протокол →</a></p>
+    </td>
+  </tr>
 </table>
-
-И ещё: <a href="https://github.com/pavel-logachev/portable-agent-os"><strong>Portable Agent OS</strong></a> — обратимый слой управления для Codex, Aider и локальных агентных процессов, открытый код под Apache-2.0.
 
 ## Как я работаю
 
