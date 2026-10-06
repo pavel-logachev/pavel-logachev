@@ -53,9 +53,9 @@
   <tr>
     <td colspan="2" valign="top">
       <h3><a href="https://github.com/pavel-logachev/dsh-mobile">DSH Mobile</a></h3>
-      <p>Неофициальное Android-приложение для DeepSeek Harness. Открывает чаты всех проектов, отправляет задачи с телефона и показывает ответы агента в реальном времени. QR-привязка, подключение по Wi‑Fi или Tailscale, без облачного сервера приложения. Модели, инструменты и подписки остаются на компьютере.</p>
-      <p>Проверить: подписанный APK 0.4.0 · Android 8+ · 142 + 85 тестов · QR-привязка</p>
-      <p><a href="https://github.com/pavel-logachev/dsh-mobile/releases/latest">Релиз 0.4.0 →</a> · <a href="https://github.com/pavel-logachev/dsh-mobile/blob/main/docs/SETUP.md">Установка →</a></p>
+      <p>Неофициальное Android-приложение для DeepSeek Harness. Открывает чаты всех проектов, отправляет задачи с телефона и показывает ответы агента в реальном времени. Пока агент работает, ему можно дописать сообщение, а уведомление сообщит, что ответ готов. QR-привязка, подключение по Wi‑Fi или Tailscale, без облачного сервера приложения. Модели, инструменты и подписки остаются на компьютере.</p>
+      <p>Проверить: подписанный APK 0.5.0 · Android 8+ · 190 + 121 тест · QR-привязка</p>
+      <p><a href="https://github.com/pavel-logachev/dsh-mobile/releases/latest">Релиз 0.5.0 →</a> · <a href="https://github.com/pavel-logachev/dsh-mobile/blob/main/docs/SETUP.md">Установка →</a></p>
     </td>
   </tr>
 </table>
