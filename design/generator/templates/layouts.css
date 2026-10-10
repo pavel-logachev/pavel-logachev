@@ -1,0 +1,180 @@
+/* Принципы: тёмная «диспетчерская» в токенах logachev.net (base.css). Цвет = роль: steel — входящий
+   поток данных, lime — агент в границах, белый — решение человека; других акцентов нет.
+   Текст: Onest — заголовки и описания, JetBrains Mono капсом — служебные метки и пути репозиториев.
+   Визуальная часть — только реальные скриншоты или макеты с меткой «синтетические данные».
+   Тонкая светлая рамка вокруг тёмной плашки, чтобы картинка читалась в обеих темах GitHub.
+   Мобильный вариант (*-mobile, ≤767 px) — отдельная вёрстка, а не уменьшенная копия: кегль ≥ 11 px.
+
+   Раскладки форматов. Размеры — CSS-пиксели; PNG рендерится с deviceScaleFactor из build.py.
+   Абсолютные форматы: banner, social, card, pb (баннер профиля), ps (соцпревью профиля).
+   Потоковые (.flow): мобильные варианты, схема, карточка Telegram, три экрана — высота по содержимому. */
+
+.mark { display: inline-block; flex: none; width: 1.15em; height: 1.15em; border: 2px solid var(--lime); border-radius: .3em; position: relative; margin-right: .7em; }
+.mark::after { content: ""; position: absolute; left: 50%; top: 50%; width: .32em; height: .32em; margin: -.16em 0 0 -.16em; border-radius: 1px; background: var(--lime); }
+.top { position: absolute; display: flex; align-items: center; white-space: nowrap; }
+.txt { position: absolute; }
+.title { line-height: 1.04; }
+.sub .ln { display: block; }
+.synth-tag { position: absolute; font-family: var(--mono); font-weight: 500; letter-spacing: .08em; color: var(--mut); text-transform: uppercase; display: inline-flex; align-items: center; gap: .6em; white-space: nowrap; }
+.synth-tag::before { content: ""; width: .62em; height: .62em; border: 1.5px dashed var(--mut); border-radius: 2px; }
+.note-line { display: flex; align-items: center; gap: .65em; color: #b9c3ca; }
+.note-line::before { content: ""; width: .42em; height: .42em; border-radius: 50%; background: var(--lime); box-shadow: 0 0 .6em rgba(195, 244, 81, .7); flex: none; }
+.pipe { display: flex; flex-wrap: wrap; align-items: center; row-gap: 10px; }
+.pipe .step { font-family: var(--mono); font-weight: 500; text-transform: uppercase; letter-spacing: .05em; border: 1px solid var(--line2); border-radius: 8px; white-space: nowrap; color: var(--fg); background: rgba(233,238,242,.03); }
+.pipe .step:last-child { border-color: rgba(195, 244, 81, .55); color: var(--lime); }
+.pipe .arrow { margin: 0 .4em; }
+.hint kbd { margin: 0 .05em; }
+.arrow-btn { position: absolute; border: 1px solid var(--line2); border-radius: 50%; display: grid; place-items: center; color: var(--fg); background: rgba(5,7,10,.72); z-index: 30; }
+.arrow-btn svg { width: 40%; height: 40%; }
+.viswrap { position: absolute; }
+.vis { position: absolute; left: 0; top: 0; width: 600px; height: 420px; transform-origin: 0 0; }
+.vglow { position: absolute; left: 120px; top: 30px; width: 460px; height: 360px; border-radius: 50%; filter: blur(70px); opacity: .14; }
+.stream { position: absolute; left: 0; top: 0; }
+
+/* ---- потоковые форматы ---- */
+.flow > .top, .flow > .txt, .flow > .viswrap, .flow > .synth-tag { position: relative; left: auto; top: auto; right: auto; bottom: auto; }
+.flow > .viswrap { margin: 0 auto; }
+
+/* ---------- баннер репозитория 1200×460 ---------- */
+.f-banner .top { left: 56px; top: 44px; font-size: 18px; }
+.f-banner .txt { left: 56px; top: 112px; width: 540px; }
+.f-banner .title { font-size: 60px; }
+.f-banner .sub { font-size: 28px; line-height: 1.26; margin-top: 18px; }
+.f-banner .sec { margin-top: 30px; font-size: 20px; }
+.f-banner .chip { font-size: 17px; padding: 8px 15px; }
+.f-banner .pipe .step { font-size: 17px; padding: 8px 12px; }
+.f-banner .synth-tag { left: 56px; bottom: 44px; font-size: 17px; }
+
+/* ---------- соцпревью репозитория 1280×640 ---------- */
+.f-social .top { left: 72px; top: 68px; font-size: 22px; }
+.f-social .txt { left: 72px; top: 150px; width: 580px; }
+.f-social .title { font-size: 76px; }
+.f-social .sub { font-size: 34px; line-height: 1.24; margin-top: 22px; }
+.f-social .sec { margin-top: 36px; font-size: 25px; }
+.f-social .chips { gap: 10px; }
+.f-social .chip { font-size: 21px; padding: 10px 18px; }
+.f-social .pipe .step { font-size: 21px; padding: 10px 13px; }
+.f-social .synth-tag { right: 64px; top: 70px; font-size: 18px; }
+
+/* ---------- мобильный баннер 720×auto ---------- */
+.f-mobile { padding: 44px 40px 44px; }
+.f-mobile .top { font-size: 25px; }
+.f-mobile .txt { margin-top: 30px; }
+.f-mobile .title { font-size: 76px; }
+.f-mobile .sub { font-size: 38px; line-height: 1.22; margin-top: 16px; }
+.f-mobile .sec { margin-top: 28px; font-size: 30px; }
+.f-mobile .chips { gap: 12px; }
+.f-mobile .chip { font-size: 25px; padding: 10px 18px; }
+.f-mobile .pipe .step { font-size: 25px; padding: 10px 13px; }
+.f-mobile .viswrap { margin-top: 40px; }
+.f-mobile .synth-tag { margin-top: 26px; font-size: 24px; }
+
+/* ---------- карточка проекта в профиле 1200×400 ---------- */
+.f-card .top { left: 44px; top: 42px; font-size: 18px; }
+.f-card .txt { left: 44px; top: 100px; width: 560px; }
+.f-card .line { font-size: 40px; line-height: 1.14; font-weight: 600; letter-spacing: -.022em; margin: 0; }
+.f-card .synth-tag { left: 44px; bottom: 40px; font-size: 16px; }
+.f-card .arrow-btn { right: 26px; top: 26px; width: 52px; height: 52px; }
+
+/* ---------- мобильная карточка 720×auto ---------- */
+.f-cardm { padding: 40px 40px 40px; }
+.f-cardm .top { font-size: 25px; padding-right: 80px; }
+.f-cardm .txt { margin-top: 24px; }
+.f-cardm .line { font-size: 50px; line-height: 1.14; font-weight: 600; letter-spacing: -.022em; margin: 0; }
+.f-cardm .viswrap { margin-top: 30px; }
+.f-cardm .synth-tag { margin-top: 22px; font-size: 24px; }
+.f-cardm .arrow-btn { right: 30px; top: 28px; width: 64px; height: 64px; }
+
+/* ---------- баннер профиля 1200×400 ---------- */
+.f-pb .top { left: 64px; top: 56px; font-size: 19px; }
+.f-pb .txt { left: 64px; top: 112px; width: 700px; }
+.f-pb .title { font-size: 66px; line-height: 1.05; }
+.f-pb .sub { font-size: 25px; margin-top: 28px; line-height: 1.32; width: 640px; }
+.f-pb .motif { position: absolute; left: 790px; top: 100px; }
+
+.f-pbm { padding: 48px 40px 36px; }
+.f-pbm .top { font-size: 26px; }
+.f-pbm .txt { margin-top: 30px; }
+.f-pbm .title { font-size: 60px; line-height: 1.1; letter-spacing: -.03em; }
+.f-pbm .sub { font-size: 36px; margin-top: 24px; line-height: 1.3; }
+.f-pbm .motif { position: relative; margin-top: 26px; display: block; }
+
+.f-ps .top { left: 80px; top: 84px; font-size: 24px; }
+.f-ps .txt { left: 80px; top: 160px; width: 800px; }
+.f-ps .title { font-size: 84px; line-height: 1.05; }
+.f-ps .sub { font-size: 34px; margin-top: 34px; line-height: 1.3; width: 640px; }
+.f-ps .motif { position: absolute; left: 770px; top: 400px; }
+
+.title .lime { color: var(--lime); }
+.title .l { white-space: nowrap; }
+
+/* ---------- схема AI Tender Radar ---------- */
+.diag .rows { position: relative; }
+.diag .rail { position: absolute; width: 2px; background: linear-gradient(180deg, rgba(127,153,173,.65), rgba(127,153,173,.65) 30%, rgba(195,244,81,.75) 50%, rgba(233,238,242,.9)); }
+.diag .row { position: relative; display: grid; align-items: start; border-radius: 14px; }
+.diag .num { font-family: var(--mono); font-weight: 500; color: var(--mut); letter-spacing: .04em; }
+.diag .node { position: relative; z-index: 2; display: grid; place-items: center; }
+.diag .node i { display: block; }
+.diag .k-data .node i { border-radius: 50%; background: var(--steel); box-shadow: 0 0 0 5px var(--bg); }
+.diag .k-agent .node i { border: 2px solid var(--lime); border-radius: 5px; background: #1b2410; box-shadow: 0 0 16px rgba(195,244,81,.5); }
+.diag .k-code .node i { border: 2px solid var(--fg); border-radius: 3px; background: var(--bg); }
+.diag .k-human .node i { border-radius: 50%; background: #fff; box-shadow: 0 0 0 5px rgba(255,255,255,.12), 0 0 24px rgba(255,255,255,.8); }
+.diag .k-agent { background: rgba(195,244,81,.055); box-shadow: inset 0 0 0 1px rgba(195,244,81,.5); }
+.diag .k-code { background: rgba(233,238,242,.035); box-shadow: inset 0 0 0 1px rgba(233,238,242,.22); }
+.diag .t { font-weight: 600; letter-spacing: -.01em; color: var(--fg); }
+.diag .k-agent .t { color: var(--lime); }
+.diag .d { color: #c3ccd2; }
+.diag .note { display: grid; color: #b9c3ca; border-top: 1px solid var(--line2); }
+.diag .note .bang { font-family: var(--mono); font-weight: 700; color: var(--bg); background: var(--steel); border-radius: 50%; display: grid; place-items: center; }
+
+.f-diag { padding: 44px 48px 42px; }
+.f-diag .rail { left: 79px; top: 34px; bottom: 34px; }
+.f-diag .row { grid-template-columns: 40px 34px 262px 1fr; column-gap: 0; padding: 18px 24px 18px 14px; margin-bottom: 6px; }
+.f-diag .num { font-size: 17px; line-height: 32px; }
+.f-diag .node { height: 32px; }
+.f-diag .node i { width: 14px; height: 14px; }
+.f-diag .k-agent .node i, .f-diag .k-code .node i { width: 18px; height: 18px; }
+.f-diag .k-human .node i { width: 16px; height: 16px; }
+.f-diag .t { font-size: 25px; line-height: 32px; padding-left: 16px; }
+.f-diag .d { font-size: 22px; line-height: 1.42; padding-top: 2px; }
+.f-diag .note { grid-template-columns: 40px 1fr; column-gap: 14px; margin-top: 28px; padding-top: 28px; font-size: 21px; line-height: 1.45; }
+.f-diag .note .bang { width: 30px; height: 30px; font-size: 17px; }
+
+.f-diagm { padding: 40px 32px 40px; }
+.f-diagm .rail { left: 67px; top: 36px; bottom: 36px; }
+.f-diagm .row { grid-template-columns: 34px 34px 1fr; column-gap: 0; padding: 20px 22px 22px 10px; margin-bottom: 8px; }
+.f-diagm .num { font-size: 22px; line-height: 40px; }
+.f-diagm .node { height: 40px; }
+.f-diagm .node i { width: 16px; height: 16px; }
+.f-diagm .k-agent .node i, .f-diagm .k-code .node i { width: 20px; height: 20px; }
+.f-diagm .k-human .node i { width: 18px; height: 18px; }
+.f-diagm .t { font-size: 33px; line-height: 40px; padding-left: 16px; }
+.f-diagm .d { grid-column: 3; font-size: 29px; line-height: 1.36; margin-top: 6px; padding-left: 16px; }
+.f-diagm .note { grid-template-columns: 36px 1fr; column-gap: 16px; margin-top: 26px; padding-top: 28px; font-size: 27px; line-height: 1.42; }
+.f-diagm .note .bang { width: 36px; height: 36px; font-size: 24px; }
+
+/* ---------- макет карточки Telegram отдельным файлом ---------- */
+.f-tgcard { padding: 22px 20px 20px; background: #0b111a; }
+.f-tgcard .synth-tag { position: relative; font-size: 13px; margin: 0 0 14px 4px; }
+.f-tgcard .tg { border-radius: 12px; padding: 16px 14px 14px; }
+.f-tgcard .synth-tag { font-size: 14px; }
+.f-tgcard .tg-time { font-size: 13px; }
+.f-tgcard .tg-kb div { font-size: 15px; }
+
+/* ---------- три экрана DSH Mobile ---------- */
+.screens { display: grid; grid-template-columns: repeat(3, 1fr); }
+.screens .col { display: flex; flex-direction: column; align-items: center; }
+.screens .ph { position: relative; background: #14181d; box-shadow: 0 0 0 1px rgba(233, 238, 242, .16), 0 24px 50px rgba(0, 0, 0, .5); }
+.screens .ph img { display: block; width: 100%; }
+.screens .cap { color: #c3ccd2; text-align: center; }
+.screens .cap::before { content: ""; display: block; width: 8px; height: 8px; margin: 0 auto 14px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 10px rgba(195,244,81,.6); }
+.f-screens { padding: 48px 44px 44px; }
+.f-screens .screens { column-gap: 44px; }
+.f-screens .ph { width: 270px; border-radius: 30px; padding: 6px; }
+.f-screens .ph img { border-radius: 24px; }
+.f-screens .cap { font-size: 21px; line-height: 1.38; margin-top: 28px; max-width: 280px; }
+.f-screensm { padding: 36px 22px 36px; }
+.f-screensm .screens { column-gap: 16px; }
+.f-screensm .ph { width: 204px; border-radius: 24px; padding: 5px; }
+.f-screensm .ph img { border-radius: 19px; }
+.f-screensm .cap { font-size: 26px; line-height: 1.3; margin-top: 24px; }

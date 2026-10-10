@@ -1,2 +1,4 @@
 __pycache__/
 *.pyc
+design/generator/out/
+design/generator/preview/

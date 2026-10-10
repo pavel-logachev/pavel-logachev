@@ -1,0 +1,124 @@
+/* Диспетчерская: токены совпадают с logachev.net (site.616fdf85.css).
+   @font-face (Onest, JetBrains Mono; SIL OFL 1.1, см. fonts/*-OFL.txt) build.py пишет во временный
+   fonts.css как data: URI — Chromium не грузит шрифты по file:// из-за CORS. */
+
+:root {
+  --bg: #05070a; --bg2: #090d12; --fg: #e9eef2; --mut: #8f9aa3;
+  --lime: #c3f451; --steel: #7f99ad;
+  --line: rgba(233, 238, 242, .10); --line2: rgba(233, 238, 242, .20); --line3: rgba(233, 238, 242, .42);
+  --mono: "JBM", "Cascadia Mono", Consolas, monospace;
+  --font: "Onest", "Segoe UI", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: transparent; }
+body { -webkit-font-smoothing: antialiased; text-rendering: geometricPrecision; font-kerning: normal; }
+
+#stage { display: inline-block; padding: 0; }
+.frame {
+  position: relative; overflow: hidden; isolation: isolate;
+  color: var(--fg); font-family: var(--font);
+  background:
+    radial-gradient(120% 90% at 100% 0%, rgba(127, 153, 173, .07), transparent 60%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+  border-radius: 16px;
+}
+.frame.square { border-radius: 0; }
+.frame::after { /* волосяная рамка поверх всего, чтобы плашка читалась на тёмной теме GitHub */
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 100;
+  box-shadow: inset 0 0 0 1px rgba(233, 238, 242, .13);
+}
+.frame.square::after { box-shadow: none; }
+
+.mono { font-family: var(--mono); font-weight: 500; text-transform: uppercase; letter-spacing: .12em; color: var(--mut); }
+.slug { font-family: var(--mono); font-weight: 450; letter-spacing: .02em; color: var(--mut); text-transform: none; }
+.slug b { color: var(--fg); font-weight: 500; }
+.lime { color: var(--lime); }
+.steel { color: var(--steel); }
+.hair { position: absolute; height: 1px; background: var(--line); }
+.tick { position: absolute; width: 9px; height: 9px; border-color: var(--line3); border-style: solid; border-width: 0; }
+.tick.tl { border-top-width: 1px; border-left-width: 1px; }
+.tick.tr { border-top-width: 1px; border-right-width: 1px; }
+.tick.bl { border-bottom-width: 1px; border-left-width: 1px; }
+.tick.br { border-bottom-width: 1px; border-right-width: 1px; }
+
+.h { font-weight: 600; letter-spacing: -.022em; margin: 0; }
+.sub { color: #b9c3ca; margin: 0; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  font-family: var(--mono); font-weight: 500; text-transform: uppercase; letter-spacing: .08em;
+  color: var(--fg); border: 1px solid var(--line2); border-radius: 999px; white-space: nowrap;
+  background: rgba(233, 238, 242, .03);
+}
+.chip .dot { display: inline-block; width: .5em; height: .5em; border-radius: 50%; background: var(--lime); margin-right: .55em; vertical-align: .1em; }
+.pipe { display: flex; flex-wrap: wrap; align-items: center; }
+.pipe .arrow { color: var(--steel); font-family: var(--mono); }
+
+kbd {
+  font-family: var(--mono); font-weight: 600; color: var(--fg); font-size: .92em;
+  border: 1px solid var(--line3); border-bottom-width: 2px; border-radius: 6px;
+  padding: .08em .45em; background: rgba(233, 238, 242, .05); white-space: nowrap;
+}
+.hint { color: #b9c3ca; }
+
+/* визуальная зона со скриншотами */
+.vis { position: absolute; overflow: visible; }
+.glow { position: absolute; border-radius: 50%; filter: blur(40px); pointer-events: none; }
+.shot { display: block; }
+.shot img { display: block; width: 100%; height: auto; }
+.phone {
+  position: absolute; border-radius: 30px; padding: 6px; background: #14181d;
+  box-shadow: 0 0 0 1px rgba(233, 238, 242, .16), 0 30px 60px rgba(0, 0, 0, .55);
+}
+.phone img { display: block; width: 100%; border-radius: 24px; }
+.window {
+  position: absolute; border-radius: 12px; overflow: hidden; background: #12141c;
+  box-shadow: 0 0 0 1px rgba(233, 238, 242, .16), 0 30px 60px rgba(0, 0, 0, .55);
+}
+.window img { display: block; width: 100%; }
+.synth {
+  position: absolute; font-family: var(--mono); font-weight: 500; text-transform: uppercase;
+  letter-spacing: .1em; color: var(--mut); display: flex; align-items: center; gap: .6em; z-index: 20;
+}
+.synth::before { content: ""; width: .55em; height: .55em; border: 1px solid var(--mut); border-radius: 2px; }
+
+/* ---------- макет карточки Telegram (синтетические данные) ---------- */
+.tg { position: relative; background: #0e1621; padding: 14px 14px 12px; font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+.tg.flat { background: transparent; padding: 0; }
+.tg-bubble {
+  background: #182533; color: #f1f5f8; border-radius: 14px 14px 14px 4px; padding: 9px 12px 7px;
+  font-size: 15px; line-height: 1.38; position: relative;
+}
+.tg-bubble p { margin: 0; }
+.tg-bubble .gap { height: .75em; }
+.tg-bubble b { font-weight: 700; }
+.tg-bubble a { color: #6ab3f3; text-decoration: none; }
+.tg-bubble .ind { padding-left: 1.05em; }
+.tg-time { text-align: right; color: #6d8394; font-size: 12px; margin-top: 2px; }
+.tg-kb { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin-top: 4px; }
+.tg-kb div {
+  background: rgba(24, 37, 51, .92); color: #f1f5f8; border-radius: 8px; text-align: center;
+  font-size: 14px; font-weight: 600; padding: 9px 6px; border: 1px solid rgba(255, 255, 255, .04);
+}
+
+/* ---------- макет листа Excel «КП» (синтетические данные) ---------- */
+.xl { position: relative; background: #fff; color: #1f1f1f; font-family: "Segoe UI", Calibri, Arial, sans-serif; font-size: 13px; border-radius: 10px; overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(233, 238, 242, .16), 0 30px 60px rgba(0, 0, 0, .55); }
+.xl-bar { background: #1e6b41; color: #fff; font-size: 12px; padding: 7px 12px; display: flex; gap: 10px; align-items: center; }
+.xl-bar i { width: 9px; height: 9px; border-radius: 50%; background: rgba(255, 255, 255, .35); display: inline-block; }
+.xl-bar span { margin-left: 6px; opacity: .92; }
+.xl table { border-collapse: collapse; width: 100%; }
+.xl td { border: 1px solid #d9dde1; padding: 5px 7px; white-space: nowrap; }
+.xl .colh td { background: #f3f4f6; color: #6b7280; text-align: center; font-size: 11px; padding: 2px; }
+.xl .title td { background: #eaf3f8; font-weight: 700; font-size: 15px; }
+.xl .meta td { background: #f6f8fa; font-weight: 600; text-align: center; font-size: 12px; }
+.xl .metav td { text-align: center; font-size: 12px; }
+.xl .total td { background: #e8f5e9; font-weight: 700; }
+.xl .sect td { background: #eaf3f8; font-weight: 700; }
+.xl .head td { background: #f3f4f6; font-weight: 600; text-align: center; font-size: 12px; }
+.xl .num { text-align: right; font-variant-numeric: tabular-nums; }
+.xl .review td { background: #fff4d6; font-weight: 700; }
+.xl .check td { background: #fffaf0; }
+.xl-tabs { display: flex; gap: 0; background: #f3f4f6; border-top: 1px solid #d9dde1; font-size: 12px; }
+.xl-tabs div { padding: 6px 14px; color: #4b5563; border-right: 1px solid #d9dde1; }
+.xl-tabs div.on { background: #fff; color: #1e6b41; font-weight: 700; border-bottom: 2px solid #1e6b41; }

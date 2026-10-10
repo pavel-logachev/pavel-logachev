@@ -1,79 +1,89 @@
-<!-- github-profile-readme -->
+<a href="https://logachev.net/"><picture><source media="(max-width: 767px)" srcset="assets/profile-banner-mobile.png"><img src="assets/profile-banner.png" alt="Павел Логачев внедряет ИИ-агентов в рабочие процессы: поток данных поступает агенту, он готовит результат, человек принимает решение."></picture></a>
 
-<p align="center">
-  <img src="assets/profile-banner.png" alt="Павел Логачев — внедрение ИИ-агентов. Агент готовит, человек решает." width="100%">
-</p>
+<div align="center">
 
-<p align="center">
-  <a href="https://logachev.net/">Сайт</a>
-  &nbsp;·&nbsp;
-  <a href="https://logachev.net/journal/">Журнал</a>
-  &nbsp;·&nbsp;
-  <a href="https://t.me/logachev_ai">Telegram-канал</a>
-  &nbsp;·&nbsp;
-  <a href="mailto:ai@logachev.net?subject=%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83">Написать</a>
-</p>
+[Сайт](https://logachev.net/) · [Журнал](https://logachev.net/journal/) · [Telegram-канал](https://t.me/logachev_ai) · [Обсудить задачу](mailto:ai@logachev.net)
 
-**Я Павел Логачев, внедряю ИИ-агентов в рабочие процессы бизнеса.** 20 лет в IT: 10 лет инженером, затем 10 лет руководил крупными проектами системной интеграции. За последние полгода больше 1000 часов работал с ИИ-агентами: делаю с ними собственные продукты и инструменты для продаж, закупок и подготовки документов.
+</div>
 
-Агент берёт на себя работу, где нужно прочитать документы, найти сведения и собрать результат. Код ограничивает его доступ и проверяет результат. Решение принимает человек.
+Я Павел Логачев — внедряю ИИ-агентов в работу команд продаж, закупок, пресейла и ИТ: сам разбираю процесс, собираю и запускаю систему.
 
-## Агенты для продаж и пресейла
+20 лет работаю в ИТ: первые 10 — инженером, следующие 10 — руководителем крупных проектов системной интеграции. С ИИ-агентами интенсивно работаю около полугода — больше 1000 часов практики.
 
-<table>
-  <tr>
-    <td width="50%" valign="top">
-      <h3><a href="https://github.com/pavel-logachev/ai-tender-radar">AI Tender Radar</a></h3>
-      <p>Находит на Bidzaar закупки серверов и СХД и выясняет, кому у заказчика звонить. Агент читает документы, смотрит отчётность заказчика в ФНС, ищет человека с телефоном в закупке, на сайте компании и в открытых источниках. Менеджер получает в Telegram карточку: что покупают, к какому сроку, кому звонить и с чего начать разговор.</p>
-      <p>Код сверяет телефон и имя с текстами, которые прочитал агент, и удаляет то, чего там нет. На наборе из 16 закупок агент нашёл человека с проверенным телефоном в 8–9 случаях, прежняя цепочка кода — в 3.</p>
-      <p>Python · Telegram · Excel · 726 тестов</p>
-      <p><a href="https://logachev.net/journal/ii-agent-dlya-generacii-lidov-zakupki/">Статья →</a></p>
-    </td>
-    <td width="50%" valign="top">
-      <h3><a href="https://github.com/pavel-logachev/stock-configurator">Stock Configurator</a></h3>
-      <p>Превращает запрос клиента, написанный обычным текстом, в черновик серверной спецификации из того, что есть на складе дистрибьютора. Модель выбирает только из полученных позиций, а код берёт артикулы, цены и остатки из данных дистрибьютора и пересчитывает суммы. Если подходящего оборудования нет, система так и отвечает.</p>
-      <p>Инженер получает Excel с позициями, остатками и списком «Проверить перед КП»: совместимость, комплектация, сроки поставки.</p>
-      <p>Python · FastAPI · PostgreSQL · Telegram · Excel</p>
-      <p><a href="https://logachev.net/journal/podbor-oborudovaniya-po-skladu-ii/">Статья →</a></p>
-    </td>
-  </tr>
-</table>
+Здесь можно проверить, как устроены мои проекты: изучить код, тесты и ограничения, скачать приложения.
 
-Третий проект этого направления, AI Proposal Builder, собирает коммерческое предложение из сообщения в Telegram; его код закрыт, а устройство описано в [статье](https://logachev.net/journal/kommercheskoe-predlozhenie-ii/).
+## Проекты для бизнеса
 
-## Приложения
+### AI Tender Radar
 
-<table>
-  <tr>
-    <td colspan="2" valign="top">
-      <h3><a href="https://github.com/pavel-logachev/dsh-mobile">DSH Mobile</a></h3>
-      <p>Неофициальный Android-клиент для DeepSeek Harness: агент работает на компьютере, а с телефона можно открыть чат любого проекта, поставить задачу, следить за ответом в реальном времени, дописать сообщение, пока агент работает, и получить уведомление «Ответ готов». Привязка по QR-коду, подключение по Wi‑Fi или через Tailscale, без облачного сервера. Модели, инструменты и подписки остаются на компьютере.</p>
-      <p>Kotlin · Jetpack Compose · Node.js · APK 0.5.0 · Android 8+</p>
-      <p><a href="https://github.com/pavel-logachev/dsh-mobile/releases/latest">Релиз 0.5.0 →</a> · <a href="https://github.com/pavel-logachev/dsh-mobile/blob/main/docs/SETUP.md">Установка →</a></p>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <h3><a href="https://github.com/pavel-logachev/voice-input">Voice Input</a></h3>
-      <p>Диктовка в поля ввода Windows: зажмите горячую клавишу, скажите фразу, отпустите — текст появится там, где стоит курсор. Живёт в трее, распознаёт речь через OpenAI по вашему ключу, ключ хранится зашифрованным.</p>
-      <p>.NET 10 · WPF · Windows 10/11</p>
-      <p><a href="https://github.com/pavel-logachev/voice-input/releases/latest">Релиз 1.0.0 →</a></p>
-    </td>
-    <td width="50%" valign="top">
-      <h3><a href="https://github.com/pavel-logachev/pora">Пора</a></h3>
-      <p>Напоминает принимать лекарства по расписанию и хранит историю приёмов. Работает на телефоне без аккаунта и интернета, включая встроенный справочник ЕСКЛП на 23 001 препарат. Аккаунт нужен только для синхронизации.</p>
-      <p>React Native · Expo · SQLite · Android 7+</p>
-      <p><a href="https://github.com/pavel-logachev/pora/releases/latest">Релиз 1.1.0 →</a></p>
-    </td>
-  </tr>
-</table>
+<a href="https://github.com/pavel-logachev/ai-tender-radar"><picture><source media="(max-width: 767px)" srcset="assets/card-ai-tender-radar-mobile.png"><img src="assets/card-ai-tender-radar.png" alt="Макет карточки лида в Telegram на синтетических данных: закупка, срок, заказчик, выручка по ФНС, контакт и начало разговора."></picture></a>
 
-## Как я работаю
+Я сделал радар для поиска заказчиков по закупкам серверов и систем хранения данных на Bidzaar. Агент читает документы и отчётность ФНС, ищет контакт и готовит карточку в Telegram: что покупают, кому звонить и о чём говорить. Код сверяет телефон с прочитанным источником, но его актуальность выясняется при звонке — связывается с заказчиком менеджер.
 
-Начинаю с одного рабочего процесса и одного сценария, который можно довести до ежедневного использования. Проверяю работу в реальном окружении и то, что происходит при отказах. Вместе с продуктом готовлю тесты, инструкции по установке или развёртыванию, диагностику и описание ограничений, чтобы запуск можно было повторить без меня.
+**Результат:** на одном наборе из 16 закупок агент нашёл человека с проверенным телефоном в 8–9 случаях, в зависимости от модели; прежняя цепочка кода — в 3. Это один рабочий прогон, сам набор не опубликован.
 
-В публичных репозиториях можно изучить код и запустить продукты. Данные клиентов и закрытые рабочие системы я не публикую.
+**Стек:** Python · SQLite · Telegram · Excel
 
-<p align="center">
-  Москва · <a href="https://logachev.net/">logachev.net</a> · <a href="https://t.me/pavel_logachev">@pavel_logachev</a> · <a href="https://t.me/logachev_ai">канал</a>
-</p>
+[Исходный код](https://github.com/pavel-logachev/ai-tender-radar) · [Разбор проекта](https://logachev.net/journal/ii-agent-dlya-generacii-lidov-zakupki/)
+
+### Stock Configurator
+
+<a href="https://github.com/pavel-logachev/stock-configurator"><picture><source media="(max-width: 767px)" srcset="assets/card-stock-configurator-mobile.png"><img src="assets/card-stock-configurator.png" alt="Макет листа Excel «КП»: позиции DEMO-…, суммы и блок «Перед отправкой проверить». Данные синтетические."></picture></a>
+
+Я сделал конфигуратор для пресейла: запрос в Telegram превращается в черновик серверной спецификации по данным склада дистрибьютора. Модель выбирает оборудование, код подставляет артикулы, цены и остатки и пересчитывает суммы. Состав, совместимость и условия поставки проверяет инженер.
+
+**Результат:** Excel: первый лист «КП» содержит черновик коммерческого предложения и блок «Перед отправкой проверить». Это первая рабочая версия; экономия времени пока не измерялась.
+
+**Стек:** Python · FastAPI · PostgreSQL · Telegram · Excel
+
+[Исходный код](https://github.com/pavel-logachev/stock-configurator) · [Разбор проекта](https://logachev.net/journal/podbor-oborudovaniya-po-skladu-ii/)
+
+В [статье об AI Proposal Builder](https://logachev.net/journal/kommercheskoe-predlozhenie-ii/) показываю, как из сообщения в Telegram собирается коммерческое предложение в DOCX и PDF для проверки менеджером; код проекта закрыт.
+
+## Приложения, которые можно установить
+
+### [DSH Mobile](https://github.com/pavel-logachev/dsh-mobile)
+
+<a href="https://github.com/pavel-logachev/dsh-mobile"><picture><source media="(max-width: 767px)" srcset="assets/card-dsh-mobile-mobile.png"><img src="assets/card-dsh-mobile.png" alt="Три экрана Android-приложения: список чатов, чат с работающим агентом и выбор проекта."></picture></a>
+
+Сделал неофициальный Android-клиент для DeepSeek Harness: с телефона можно открыть чат, поставить задачу и следить за ответом агента. Подключение — по Wi-Fi или через Tailscale; агент работает на компьютере, поэтому компьютер и DSH должны быть включены.
+
+**Платформа и стек:** Android 8+ · Kotlin · Jetpack Compose · Node.js
+
+[Скачать 0.5.0](https://github.com/pavel-logachev/dsh-mobile/releases/tag/v0.5.0)
+
+### [Voice Input](https://github.com/pavel-logachev/voice-input)
+
+<a href="https://github.com/pavel-logachev/voice-input"><picture><source media="(max-width: 767px)" srcset="assets/card-voice-input-mobile.png"><img src="assets/card-voice-input.png" alt="Оверлей диктовки со статусами «Слушаю», «Распознаю», «Готово» и окно настроек приложения."></picture></a>
+
+Сделал диктовку для полей ввода Windows: зажмите горячую клавишу, произнесите текст и отпустите — он появится у курсора. Для распознавания нужны интернет и ваш API-ключ OpenAI; запросы оплачиваются с вашего аккаунта.
+
+**Платформа и стек:** Windows 10 1809+ / 11 x64 · .NET 10 · WPF
+
+[Скачать 1.0.0](https://github.com/pavel-logachev/voice-input/releases/tag/v1.0.0)
+
+### [Пора](https://github.com/pavel-logachev/pora)
+
+<a href="https://github.com/pavel-logachev/pora"><picture><source media="(max-width: 767px)" srcset="assets/card-pora-mobile.png"><img src="assets/card-pora.png" alt="Экраны приложения: история приёмов лекарств, «Сегодня» с ближайшим приёмом и тёмная тема."></picture></a>
+
+В «Поре» я собрал расписание лекарств, напоминания и историю приёма, которые работают без аккаунта и интернета. Встроенный справочник ЕСКЛП содержит 23 001 препарат; приложение не назначает лечение и не проверяет совместимость лекарств.
+
+**Платформа и стек:** Android 7+ · React Native · Expo · SQLite
+
+[Скачать 1.1.0](https://github.com/pavel-logachev/pora/releases/tag/v1.1.0)
+
+## Начнём с одного процесса
+
+- Начинаю с одного процесса. Если обычный код или готовый сервис справятся надёжнее, скажу об этом.
+- До подключения к данным вместе с вашей командой заполняю паспорт агента: что он читает и готовит, как код ограничивает доступ и проверяет результат, что решает человек.
+- Стоимость и срок первой версии называю после разбора задачи, до начала работы.
+- Проверяю первую версию на ваших данных вместе с командой. До проверки не обещаю экономию в цифрах.
+- **Опишите один рабочий процесс** [в Telegram](https://t.me/pavel_logachev) или [письмом](mailto:ai@logachev.net): как он устроен, что мешает и какой результат нужен. Для первого разговора конфиденциальные данные не нужны.
+
+---
+
+В публичных репозиториях — код и релизы; данные клиентов и закрытые рабочие системы я не публикую.
+
+Москва. Работаю с клиентами по всей России и в странах СНГ.
+
+[ai@logachev.net](mailto:ai@logachev.net) · [Telegram: @pavel_logachev](https://t.me/pavel_logachev) · [logachev.net](https://logachev.net/)
