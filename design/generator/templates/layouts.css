@@ -88,22 +88,23 @@
 /* ---------- баннер профиля 1200×400 ---------- */
 .f-pb .top { left: 64px; top: 56px; font-size: 19px; }
 .f-pb .txt { left: 64px; top: 112px; width: 700px; }
-.f-pb .title { font-size: 66px; line-height: 1.05; }
+.f-pb .title { font-size: 59px; line-height: 1.07; }
 .f-pb .sub { font-size: 25px; margin-top: 28px; line-height: 1.32; width: 640px; }
-.f-pb .motif { position: absolute; left: 790px; top: 100px; }
+.f-pb .motif { position: absolute; left: 836px; top: 50px; }
 
 .f-pbm { padding: 48px 40px 36px; }
 .f-pbm .top { font-size: 26px; }
 .f-pbm .txt { margin-top: 30px; }
-.f-pbm .title { font-size: 60px; line-height: 1.1; letter-spacing: -.03em; }
-.f-pbm .sub { font-size: 36px; margin-top: 24px; line-height: 1.3; }
-.f-pbm .motif { position: relative; margin-top: 26px; display: block; }
+.f-pbm .title { font-size: 52px; line-height: 1.12; letter-spacing: -.03em; }
+.f-pbm .sub { font-size: 32px; margin-top: 24px; line-height: 1.32; text-wrap: balance; }
+.f-pbm .motif { position: relative; margin-top: 30px; display: block; }
 
 .f-ps .top { left: 80px; top: 84px; font-size: 24px; }
 .f-ps .txt { left: 80px; top: 160px; width: 800px; }
-.f-ps .title { font-size: 84px; line-height: 1.05; }
-.f-ps .sub { font-size: 34px; margin-top: 34px; line-height: 1.3; width: 640px; }
-.f-ps .motif { position: absolute; left: 770px; top: 400px; }
+.f-ps .title { font-size: 66px; line-height: 1.07; }
+.f-ps .sub { font-size: 30px; margin-top: 34px; line-height: 1.32; width: 720px; text-wrap: balance; }
+.f-ps .motif { position: absolute; left: 920px; top: 150px; }
+.sub .nw { white-space: nowrap; }
 
 .title .lime { color: var(--lime); }
 .title .l { white-space: nowrap; }

@@ -84,13 +84,25 @@ def top_slug(repo: str) -> str:
             f'<span class="slug">{e(OWNER)} / <b>{e(repo)}</b></span></div>')
 
 
-def synth_tag() -> str:
-    return f'<div class="synth-tag" data-zone="synth">{e(T["synthetic_label"])}</div>'
+def synth_tag(key: str = "synthetic_label") -> str:
+    return f'<div class="synth-tag" data-zone="synth">{e(T[key])}</div>'
+
+
+def top_url(url: str) -> str:
+    """Верхняя строка карточки проекта без репозитория: адрес сайта вместо «владелец / репозиторий»."""
+    host, _, rest = url.partition("/")
+    inner = f'{e(host)}/<b>{e(rest)}</b>' if rest else f'<b>{e(host)}</b>'
+    return f'<div class="top" data-zone="top"><span class="mark"></span><span class="slug">{inner}</span></div>'
 
 
 def phone(src: str, left: float, top: float, width: float, rot: float = 0, z: int = 1, extra: str = "") -> str:
     return (f'<div class="phone" style="left:{left}px;top:{top}px;width:{width}px;'
             f'transform:rotate({rot}deg);z-index:{z};{extra}"><img src="{furl(SRC / src)}"></div>')
+
+
+def window(src: str, left: float, top: float, width: float, z: int = 1) -> str:
+    return (f'<div class="window" style="left:{left}px;top:{top}px;width:{width}px;z-index:{z}">'
+            f'<img src="{furl(SRC / src)}"></div>')
 
 
 def tg_bubble(c: dict, kb: bool) -> str:
@@ -166,7 +178,7 @@ def pill(src: str, left: float, top: float, width: float, z: int, bbox=(86, 75, 
 def vis(repo: str) -> str:
     """Визуальная зона 600×420 с реальными скриншотами (или синтетическим макетом)."""
     glow = {"ai-tender-radar": "#6ab3f3", "stock-configurator": "#3fae6a", "dsh-mobile": "#c3f451",
-            "voice-input": "#8b7cff", "pora": "#2f8f6b"}[repo]
+            "voice-input": "#8b7cff", "pora": "#2f8f6b", "resnichki": "#d6a66a", "fund-portal": "#3b6fd1"}[repo]
     g = f'<div class="vglow" style="background:{glow}"></div>'
     if repo == "ai-tender-radar":
         body = (f'<div class="tg" style="position:absolute;left:64px;top:16px;width:476px;height:560px;'
@@ -187,6 +199,14 @@ def vis(repo: str) -> str:
     elif repo == "pora":
         body = (phone("pora-history.png", 30, 70, 186, -7, 1) + phone("pora-today-dark.png", 384, 70, 186, 7, 1)
                 + phone("pora-today.png", 196, 22, 208, 0, 2))
+    elif repo == "resnichki":
+        # главная студии (десктоп) и страница курса (телефон), снимки resnichki.moscow
+        body = (window("resnichki-home.jpg", 0, 34, 470, 1)
+                + phone("resnichki-kurs-mobile.jpg", 398, 64, 178, 5, 2))
+    elif repo == "fund-portal":
+        # кабинет оргкомитета (пилот) и кабинет предприятия (прототип), демонстрационные данные
+        body = (window("fund-orgcommittee-dashboard.png", 0, 16, 470, 1)
+                + window("fund-enterprise-work.png", 124, 148, 470, 2))
     else:
         raise KeyError(repo)
     return g + body
@@ -229,43 +249,68 @@ SYNTH = {"ai-tender-radar", "stock-configurator"}
 
 
 # ---------------------------------------------------------------- мотив профиля
+# Формы решения — контурные значки 24×24 (сайт, кабинет, бот, приложение, автоматизация).
+FORM_ICONS = [
+    '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8.5h18"/><path d="M6.5 12.5h8"/><path d="M6.5 16h5"/>',
+    '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8.5 4v16"/><path d="M11.5 9h6"/><path d="M11.5 12.5h6"/><path d="M11.5 16h4"/>',
+    '<path d="M4.5 4.5h15a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 3.5v-3.5h-1A1.5 1.5 0 0 1 3 15V6a1.5 1.5 0 0 1 1.5-1.5z"/>'
+    '<path d="M8 10.5h.01"/><path d="M12 10.5h.01"/><path d="M16 10.5h.01"/>',
+    '<rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/>',
+    '<path d="M20.5 11a8.5 8.5 0 0 0-14.8-4.7L3.5 8.5"/><path d="M3.5 3.5v5h5"/>'
+    '<path d="M3.5 13a8.5 8.5 0 0 0 14.8 4.7l2.2-2.2"/><path d="M20.5 20.5v-5h-5"/>',
+]
+
+
 def motif(w: int, h: int, seed: int = 7) -> str:
-    """Поток (steel) -> агент в границах (lime) -> решение человека (белая точка)."""
+    """Разбор (steel-точки сходятся) -> одна задача (lime, знак бренда) -> пять форм решения:
+    сайт, кабинет, бот, приложение, автоматизация. Лаймовая точка на форме — запущено."""
     rnd = random.Random(seed)
     cy = h / 2
-    bx = w * 0.60
-    bs = min(h * 0.46, 92)
-    hx = w * 0.93
+    ts = min(h * 0.3, 76)                       # задача
+    tx = w * 0.30
+    n = len(FORM_ICONS)
+    pitch = (h - 4) / n
+    s = min(pitch * 0.8, 52)                    # плитка формы
+    xr = w - s / 2 - 6
+    bulge = min(w * 0.07, 34)
     dots = []
-    for _ in range(int(w * 0.32)):
+    for _ in range(int(w * 0.16)):
         t = rnd.random() ** 0.8
-        x = t * (bx - bs / 2 - 14)
-        spread = (1 - t) * (h / 2 - 8) + bs * 0.32 * t
+        x = t * (tx - ts / 2 - 12)
+        spread = (1 - t) * (h / 2 - 6) + ts * 0.28 * t
         y = cy + rnd.uniform(-1, 1) * spread
-        r = rnd.uniform(1.1, 2.4)
-        op = 0.18 + 0.62 * t * rnd.uniform(0.6, 1)
+        r = rnd.uniform(1.0, 2.2)
+        op = 0.16 + 0.6 * t * rnd.uniform(0.6, 1)
         dots.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r:.1f}" fill="#7f99ad" opacity="{op:.2f}"/>')
-    grid = []
-    for i in range(3):
-        for j in range(3):
-            gx = bx - bs * 0.25 + i * bs * 0.25
-            gy = cy - bs * 0.25 + j * bs * 0.25
-            op = 1 if (i, j) == (1, 1) else 0.55
-            grid.append(f'<rect x="{gx - 3:.1f}" y="{gy - 3:.1f}" width="6" height="6" rx="1" fill="#c3f451" opacity="{op}"/>')
-    x0 = bx + bs / 2
-    return f"""<svg class="motif" width="{w}" height="{h}" viewBox="0 0 {w} {h}" data-illus="1">
+    links, tiles = [], []
+    x0 = tx + ts / 2 + 6
+    for i, icon in enumerate(FORM_ICONS):
+        k = (i - (n - 1) / 2) / ((n - 1) / 2)
+        fx = xr - bulge * k * k
+        fy = 2 + pitch * (i + 0.5)
+        x1 = fx - s / 2 - 8
+        mx = x0 + (x1 - x0) * 0.5
+        links.append(f'<path d="M{x0:.1f} {cy:.1f} C{mx:.1f} {cy:.1f} {mx:.1f} {fy:.1f} {x1:.1f} {fy:.1f}" fill="none" '
+                     f'stroke="url(#ln)" stroke-width="2" stroke-dasharray="2 7" stroke-linecap="round"/>')
+        sc = s * 0.56 / 24
+        tiles.append(
+            f'<rect x="{fx - s / 2:.1f}" y="{fy - s / 2:.1f}" width="{s:.1f}" height="{s:.1f}" rx="{s * 0.24:.1f}" '
+            f'fill="#0a0f14" stroke="#e9eef2" stroke-opacity=".24" stroke-width="1.5"/>'
+            f'<g transform="translate({fx - 12 * sc:.2f} {fy - 12 * sc:.2f}) scale({sc:.3f})" fill="none" stroke="#e9eef2" '
+            f'stroke-width="{1.7 / sc * s / 44:.2f}" stroke-linecap="round" stroke-linejoin="round" opacity=".92">{icon}</g>'
+            f'<circle cx="{fx + s / 2 - s * 0.02:.1f}" cy="{fy - s / 2 + s * 0.02:.1f}" r="{max(3.0, s * 0.075):.1f}" '
+            f'fill="#c3f451" stroke="#05070a" stroke-width="2.5"/>')
+    return f"""<svg class="motif" width="{w}" height="{h}" viewBox="0 0 {w} {h}" data-illus="1" data-zone="vis">
   <defs>
-    <radialGradient id="hg"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
     <radialGradient id="lg"><stop offset="0" stop-color="#c3f451" stop-opacity=".28"/><stop offset="1" stop-color="#c3f451" stop-opacity="0"/></radialGradient>
-    <linearGradient id="ln" x1="0" x2="1"><stop offset="0" stop-color="#c3f451"/><stop offset="1" stop-color="#e9eef2"/></linearGradient>
+    <linearGradient id="ln" gradientUnits="userSpaceOnUse" x1="{x0:.1f}" x2="{xr - bulge:.1f}" y1="0" y2="0"><stop offset="0" stop-color="#c3f451"/><stop offset="1" stop-color="#e9eef2" stop-opacity=".7"/></linearGradient>
   </defs>
   {''.join(dots)}
-  <circle cx="{bx:.1f}" cy="{cy:.1f}" r="{bs * 1.05:.1f}" fill="url(#lg)"/>
-  <rect x="{bx - bs / 2:.1f}" y="{cy - bs / 2:.1f}" width="{bs:.1f}" height="{bs:.1f}" rx="{bs * 0.16:.1f}" fill="#0b1008" stroke="#c3f451" stroke-width="2"/>
-  {''.join(grid)}
-  <line x1="{x0 + 8:.1f}" y1="{cy:.1f}" x2="{hx - 16:.1f}" y2="{cy:.1f}" stroke="url(#ln)" stroke-width="2" stroke-dasharray="2 7" stroke-linecap="round"/>
-  <circle cx="{hx:.1f}" cy="{cy:.1f}" r="26" fill="url(#hg)"/>
-  <circle cx="{hx:.1f}" cy="{cy:.1f}" r="8" fill="#fff"/>
+  {''.join(links)}
+  <circle cx="{tx:.1f}" cy="{cy:.1f}" r="{ts * 1.1:.1f}" fill="url(#lg)"/>
+  <rect x="{tx - ts / 2:.1f}" y="{cy - ts / 2:.1f}" width="{ts:.1f}" height="{ts:.1f}" rx="{ts * 0.26:.1f}" fill="#0b1008" stroke="#c3f451" stroke-width="2.5"/>
+  <rect x="{tx - ts * 0.14:.1f}" y="{cy - ts * 0.14:.1f}" width="{ts * 0.28:.1f}" height="{ts * 0.28:.1f}" rx="2" fill="#c3f451"/>
+  {''.join(tiles)}
 </svg>"""
 
 
@@ -289,7 +334,7 @@ def typo(body: str) -> str:
 
 
 def add(out: Path, cls: str, body: str, w: int, h: int | None, dpr: float, display: int | None,
-        square: bool = False):
+        square: bool = False, photo: bool = False):
     name = out.stem
     body = typo(body)
     BUILD.joinpath("html").mkdir(parents=True, exist_ok=True)
@@ -305,7 +350,7 @@ def add(out: Path, cls: str, body: str, w: int, h: int | None, dpr: float, displ
 <body><div id="stage"><div class="frame {cls}{flow}{sq}" style="{size}">{body}</div></div></body></html>"""
     hp.write_text(doc, encoding="utf-8")
     JOBS.append({"name": f"{out.parent.name}/{out.name}", "html": furl(hp), "out": str(out).replace("\\", "/"),
-                 "w": w, "h": h or 0, "dpr": dpr, "display": display or 0, "square": square})
+                 "w": w, "h": h or 0, "dpr": dpr, "display": display or 0, "square": square, "photo": photo})
 
 
 def a_profile():
@@ -313,10 +358,12 @@ def a_profile():
     b = T["profile"]["banner"]
     title = f'<span class="l">{e(b["title"][0])}</span><br><span class="l lime">{e(b["title"][1])}</span>'
     top = f'<div class="top mono" data-zone="top"><span class="mark"></span>{e(b["eyebrow"])}</div>'
-    txt = f'<div class="txt" data-zone="txt"><h1 class="h title">{title}</h1><p class="sub">{e(b["subtitle"])}</p></div>'
-    add(d / "profile-banner.png", "f-pb", top + txt + motif(360, 200), 1200, 400, 2, DESK_CHECK)
-    add(d / "profile-banner-mobile.png", "f-pbm", top + txt + motif(640, 170, 11), 720, None, 1.5, MOB_CHECK)
-    add(d / "social-preview.png", "f-ps", top + txt + motif(440, 170, 5), 1280, 640, 1, None, square=True)
+    # слова через дефис («Telegram-боты», «веб-сервисы») не разрываются переносом; текст не меняется
+    sub = re.sub(r"(\w+(?:-\w+)+)", r'<span class="nw">\1</span>', e(b["subtitle"]))
+    txt = f'<div class="txt" data-zone="txt"><h1 class="h title">{title}</h1><p class="sub">{sub}</p></div>'
+    add(d / "profile-banner.png", "f-pb", top + txt + motif(330, 300), 1200, 400, 2, DESK_CHECK)
+    add(d / "profile-banner-mobile.png", "f-pbm", top + txt + motif(640, 300, 11), 720, None, 1.5, MOB_CHECK)
+    add(d / "social-preview.png", "f-ps", top + txt + motif(320, 340, 5), 1280, 640, 1, None, square=True)
     for repo in REPOS:
         c = T["profile"]["cards"][repo]
         line = f'<div class="txt" data-zone="txt"><p class="line">{e(c["line"])}</p></div>'
@@ -328,6 +375,19 @@ def a_profile():
             top_slug(repo) + line + st + arrow
             + viswrap(repo, 0, 0, 640 / 600, flow=True, crop_h=380),
             720, None, 1.5, MOB_CHECK)
+    # проекты без открытого репозитория: тот же формат, вверху — адрес сайта, на который ведёт карточка
+    for key, c in T["profile"]["external_cards"].items():
+        line = f'<div class="txt" data-zone="txt"><p class="line">{e(c["line"])}</p></div>'
+        arrow = f'<div class="arrow-btn">{ARROW_SVG}</div>'
+        st = synth_tag("demo_label") if c.get("demo") else ""
+        ph = bool(c.get("photo"))
+        add(d / f"card-{key}.png", "f-card",
+            top_url(c["url"]) + line + st + arrow + viswrap(key, 640, 26, 0.88), 1200, 360, 2, DESK_CHECK,
+            photo=ph)
+        add(d / f"card-{key}-mobile.png", "f-cardm",
+            top_url(c["url"]) + line + st + arrow
+            + viswrap(key, 0, 0, 640 / 600, flow=True, crop_h=380),
+            720, None, 1.5, MOB_CHECK, photo=ph)
 
 
 def a_products():
@@ -465,13 +525,33 @@ def run_js(js: str, tag: str) -> str:
         return json.loads(raw.encode().decode("unicode_escape").encode("latin-1").decode("utf-8"))
 
 
-def optimize(path: Path) -> str:
+def quantize_photo(im: Image.Image) -> tuple[Image.Image, bytes]:
+    """Палитра для фотоснимков с прозрачными скруглёнными углами: median cut по RGB (октодерево
+    даёт пятна на градиентах кожи и фона) + 16 уровней прозрачности цвета фона для краёв рамки."""
+    import numpy as np
+    a = np.asarray(im)
+    q = im.convert("RGB").quantize(240, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.FLOYDSTEINBERG)
+    idx = np.asarray(q).copy()
+    pal = q.getpalette()[:240 * 3] + [5, 7, 10] * 16
+    trns = bytes([255] * 240 + [round(k * 255 / 15) for k in range(16)])
+    edge = a[..., 3] < 255
+    idx[edge] = 240 + np.round(a[..., 3][edge] / 17).astype(np.uint8)
+    out = Image.fromarray(idx, "P")
+    out.putpalette(pal)
+    return out, trns
+
+
+def optimize(path: Path, photo: bool = False) -> str:
     im = Image.open(path)
     im.load()
     if im.mode == "RGBA" and im.getchannel("A").getextrema() == (255, 255):
         im = im.convert("RGB")
     im.save(path, optimize=True)
     note = ""
+    if path.stat().st_size > MAX_BYTES and photo and im.mode == "RGBA":
+        q, trns = quantize_photo(im)
+        q.save(path, optimize=True, transparency=trns)
+        return "quantized"
     if path.stat().st_size > MAX_BYTES:
         if im.mode == "RGBA":
             q = im.quantize(256, method=Image.Quantize.FASTOCTREE, dither=Image.Dither.FLOYDSTEINBERG)
@@ -622,7 +702,7 @@ def render_all(only: str) -> bool:
     failed = False
     for r, j in zip(report, jobs):
         p = Path(j["out"])
-        note = optimize(p)
+        note = optimize(p, j.get("photo", False))
         with Image.open(p) as im:
             size = im.size
         kb = p.stat().st_size / 1024
