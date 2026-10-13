@@ -79,20 +79,30 @@ ARROW_SVG = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-
              'stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>')
 
 
-def top_slug(repo: str) -> str:
+# Знак перехода в верхней строке десктопной карточки: стоит рядом с адресом и не перекрывает скриншот.
+GO = f'<span class="go">{ARROW_SVG}</span>'
+
+
+def top_slug(repo: str, go: bool = False) -> str:
     return (f'<div class="top" data-zone="top"><span class="mark"></span>'
-            f'<span class="slug">{e(OWNER)} / <b>{e(repo)}</b></span></div>')
+            f'<span class="slug">{e(OWNER)} / <b>{e(repo)}</b></span>{GO if go else ""}</div>')
+
+
+def meta_line(text: str) -> str:
+    """Нижняя строка карточки: платформа, стек и лицензия (или статус закрытого проекта)."""
+    return f'<div class="cmeta" data-zone="meta">{e(text)}</div>'
 
 
 def synth_tag(key: str = "synthetic_label") -> str:
     return f'<div class="synth-tag" data-zone="synth">{e(T[key])}</div>'
 
 
-def top_url(url: str) -> str:
+def top_url(url: str, go: bool = False) -> str:
     """Верхняя строка карточки проекта без репозитория: адрес сайта вместо «владелец / репозиторий»."""
     host, _, rest = url.partition("/")
     inner = f'{e(host)}/<b>{e(rest)}</b>' if rest else f'<b>{e(host)}</b>'
-    return f'<div class="top" data-zone="top"><span class="mark"></span><span class="slug">{inner}</span></div>'
+    return (f'<div class="top" data-zone="top"><span class="mark"></span><span class="slug">{inner}</span>'
+            f'{GO if go else ""}</div>')
 
 
 def phone(src: str, left: float, top: float, width: float, rot: float = 0, z: int = 1, extra: str = "") -> str:
@@ -175,8 +185,9 @@ def pill(src: str, left: float, top: float, width: float, z: int, bbox=(86, 75, 
             f'width:{696 * k:.1f}px;max-width:none"></div>')
 
 
-def vis(repo: str) -> str:
-    """Визуальная зона 600×420 с реальными скриншотами (или синтетическим макетом)."""
+def vis(repo: str, card: bool = False) -> str:
+    """Визуальная зона 600×420 с реальными скриншотами (или синтетическим макетом).
+    card=True — вариант для карточки профиля, если он отличается от баннера репозитория."""
     glow = {"ai-tender-radar": "#6ab3f3", "stock-configurator": "#3fae6a", "dsh-mobile": "#c3f451",
             "voice-input": "#8b7cff", "pora": "#2f8f6b", "resnichki": "#d6a66a", "fund-portal": "#3b6fd1"}[repo]
     g = f'<div class="vglow" style="background:{glow}"></div>'
@@ -190,6 +201,11 @@ def vis(repo: str) -> str:
         s = T["dsh_screens"]
         body = (phone(s[1]["file"], 30, 70, 186, -7, 1) + phone(s[2]["file"], 384, 70, 186, 7, 1)
                 + phone(s[0]["file"], 196, 22, 208, 0, 2))
+    elif repo == "voice-input" and card:
+        # в карточке — только оверлей в трёх состояниях, крупно; окно настроек остаётся в баннере репозитория
+        body = (pill("voice-listening.png", 40, 36, 400, 3)
+                + pill("voice-processing.png", 100, 150, 400, 3)
+                + pill("voice-success.png", 160, 264, 400, 3, (86, 73, 610, 159)))
     elif repo == "voice-input":
         body = ('<div class="window" style="left:292px;top:14px;width:296px">'
                 f'<img src="{furl(SRC / "voice-settings.png")}"></div>'
@@ -212,12 +228,13 @@ def vis(repo: str) -> str:
     return g + body
 
 
-def viswrap(repo: str, left: float, top: float, z: float, flow: bool = False, crop_h: float | None = None) -> str:
+def viswrap(repo: str, left: float, top: float, z: float, flow: bool = False, crop_h: float | None = None,
+            card: bool = False) -> str:
     w, h = 600 * z, (crop_h if crop_h else 420 * z)
     pos = "" if flow else f"left:{left}px;top:{top}px;"
     ov = "overflow:hidden;" if flow else ""
     return (f'<div class="viswrap" data-zone="vis" style="{pos}width:{w:.1f}px;height:{h:.1f}px;{ov}">'
-            f'<div class="vis" data-illus="1" style="zoom:{z}">{vis(repo)}</div></div>')
+            f'<div class="vis" data-illus="1" style="zoom:{z}">{vis(repo, card)}</div></div>')
 
 
 def product_text(repo: str, mobile: bool = False) -> str:
@@ -369,23 +386,26 @@ def a_profile():
         line = f'<div class="txt" data-zone="txt"><p class="line">{e(c["line"])}</p></div>'
         arrow = f'<div class="arrow-btn">{ARROW_SVG}</div>'
         st = synth_tag() if repo in SYNTH else ""
+        meta = meta_line(c["meta"])
         add(d / f"card-{repo}.png", "f-card",
-            top_slug(repo) + line + st + arrow + viswrap(repo, 640, 26, 0.88), 1200, 360, 2, DESK_CHECK)
+            top_slug(repo, go=True) + line + st + meta + viswrap(repo, 640, 26, 0.88, card=True),
+            1200, 360, 2, DESK_CHECK)
         add(d / f"card-{repo}-mobile.png", "f-cardm",
-            top_slug(repo) + line + st + arrow
-            + viswrap(repo, 0, 0, 640 / 600, flow=True, crop_h=380),
+            top_slug(repo) + line + meta + st + arrow
+            + viswrap(repo, 0, 0, 640 / 600, flow=True, crop_h=380, card=True),
             720, None, 1.5, MOB_CHECK)
     # проекты без открытого репозитория: тот же формат, вверху — адрес сайта, на который ведёт карточка
     for key, c in T["profile"]["external_cards"].items():
         line = f'<div class="txt" data-zone="txt"><p class="line">{e(c["line"])}</p></div>'
         arrow = f'<div class="arrow-btn">{ARROW_SVG}</div>'
         st = synth_tag("demo_label") if c.get("demo") else ""
+        meta = meta_line(c["meta"])
         ph = bool(c.get("photo"))
         add(d / f"card-{key}.png", "f-card",
-            top_url(c["url"]) + line + st + arrow + viswrap(key, 640, 26, 0.88), 1200, 360, 2, DESK_CHECK,
+            top_url(c["url"], go=True) + line + st + meta + viswrap(key, 640, 26, 0.88), 1200, 360, 2, DESK_CHECK,
             photo=ph)
         add(d / f"card-{key}-mobile.png", "f-cardm",
-            top_url(c["url"]) + line + st + arrow
+            top_url(c["url"]) + line + meta + st + arrow
             + viswrap(key, 0, 0, 640 / 600, flow=True, crop_h=380),
             720, None, 1.5, MOB_CHECK, photo=ph)
 
