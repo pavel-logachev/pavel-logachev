@@ -191,6 +191,8 @@ def xl_sheet(s: dict) -> str:
 
 
 def pill(src: str, left: float, top: float, width: float, z: int, bbox=(86, 75, 610, 168)) -> str:
+    # bbox задан в координатах снимка 696×248 (UiPreview, 192 dpi); сами файлы сняты в 384 dpi, чтобы
+    # оверлей оставался резким при показе крупнее натурального размера.
     x0, y0, x1, y1 = bbox
     k = width / (x1 - x0)
     h = (y1 - y0) * k
@@ -223,11 +225,11 @@ def vis(repo: str, card: bool = False) -> str:
                 + pill("voice-processing.png", 100, 150, 400, 3)
                 + pill("voice-success.png", 160, 264, 400, 3, (86, 73, 610, 159)))
     elif repo == "voice-input":
-        body = ('<div class="window" style="left:292px;top:14px;width:296px">'
-                f'<img src="{furl(SRC / "voice-settings.png")}"></div>'
-                + pill("voice-listening.png", 0, 92, 352, 3)
-                + pill("voice-processing.png", 26, 184, 352, 3)
-                + pill("voice-success.png", 52, 276, 352, 3, (86, 73, 610, 159)))
+        # три состояния оверлея слева, окно настроек справа; ничего не перекрывается
+        body = (window("voice-settings.png", 362, 12, 238, 1)
+                + pill("voice-listening.png", 0, 96, 336, 3)
+                + pill("voice-processing.png", 0, 180, 336, 3)
+                + pill("voice-success.png", 0, 264, 336, 3, (86, 73, 610, 159)))
     elif repo == "pora":
         body = (phone("pora-history.png", 30, 70, 186, -7, 1) + phone("pora-today-dark.png", 384, 70, 186, 7, 1)
                 + phone("pora-today.png", 196, 22, 208, 0, 2))
