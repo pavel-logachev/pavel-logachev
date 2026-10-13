@@ -190,14 +190,14 @@ def xl_sheet(s: dict) -> str:
 </div>"""
 
 
-def pill(src: str, left: float, top: float, width: float, z: int, bbox=(86, 75, 610, 168)) -> str:
-    # bbox задан в координатах снимка 696×248 (UiPreview, 192 dpi); сами файлы сняты в 384 dpi, чтобы
-    # оверлей оставался резким при показе крупнее натурального размера.
+def pill(src: str, left: float, top: float, width: float, z: int, bbox=(48, 48, 648, 200)) -> str:
+    # bbox — окно оверлея 300×76 в координатах снимка 696×248 (UiPreview, 192 dpi, поля по 24 px);
+    # сами файлы сняты в 384 dpi, чтобы оверлей оставался резким при показе крупнее натурального размера.
     x0, y0, x1, y1 = bbox
     k = width / (x1 - x0)
     h = (y1 - y0) * k
     return (f'<div style="position:absolute;left:{left}px;top:{top}px;width:{width}px;height:{h:.1f}px;'
-            f'border-radius:{22 * k:.1f}px;overflow:hidden;z-index:{z};'
+            f'border-radius:{32 * k:.1f}px;overflow:hidden;z-index:{z};'
             f'box-shadow:0 0 0 1px rgba(233,238,242,.14),0 18px 40px rgba(0,0,0,.6)">'
             f'<img src="{furl(SRC / src)}" style="position:absolute;left:{-x0 * k:.1f}px;top:{-y0 * k:.1f}px;'
             f'width:{696 * k:.1f}px;max-width:none"></div>')
@@ -221,15 +221,15 @@ def vis(repo: str, card: bool = False) -> str:
                 + phone(s[0]["file"], 196, 22, 208, 0, 2))
     elif repo == "voice-input" and card:
         # в карточке — только оверлей в трёх состояниях, крупно; окно настроек остаётся в баннере репозитория
-        body = (pill("voice-listening.png", 40, 36, 400, 3)
-                + pill("voice-processing.png", 100, 150, 400, 3)
-                + pill("voice-success.png", 160, 264, 400, 3, (86, 73, 610, 159)))
+        body = (pill("voice-listening.png", 40, 20, 400, 3)
+                + pill("voice-processing.png", 100, 128, 400, 3)
+                + pill("voice-success.png", 160, 236, 400, 3))
     elif repo == "voice-input":
         # три состояния оверлея слева, окно настроек справа; ничего не перекрывается
         body = (window("voice-settings.png", 362, 12, 238, 1)
-                + pill("voice-listening.png", 0, 96, 336, 3)
-                + pill("voice-processing.png", 0, 180, 336, 3)
-                + pill("voice-success.png", 0, 264, 336, 3, (86, 73, 610, 159)))
+                + pill("voice-listening.png", 0, 62, 336, 3)
+                + pill("voice-processing.png", 0, 166, 336, 3)
+                + pill("voice-success.png", 0, 270, 336, 3))
     elif repo == "pora":
         body = (phone("pora-history.png", 30, 70, 186, -7, 1) + phone("pora-today-dark.png", 384, 70, 186, 7, 1)
                 + phone("pora-today.png", 196, 22, 208, 0, 2))
