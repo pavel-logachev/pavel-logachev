@@ -79,12 +79,17 @@ ARROW_SVG = ('<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-
              'stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>')
 
 
+# Знак бренда: лигатура «ИИ» с аватара канала @neirogazeta и логотипа logachev.net (путь из favicon.svg сайта).
+MARK = ('<span class="mark"><svg viewBox="2 6 27.738 18.43"><path fill="currentColor" d="M2 24.43L2 6L5.738 6L5.738 18.112'
+        'L14.561 6L17.738 6L17.738 18.112L26.561 6L29.738 6L29.738 24.43L26 24.43L26 12.43L17.178 24.43L14 24.43'
+        'L14 12.43L5.178 24.43Z"/></svg></span>')
+
 # Знак перехода в верхней строке десктопной карточки: стоит рядом с адресом и не перекрывает скриншот.
 GO = f'<span class="go">{ARROW_SVG}</span>'
 
 
 def top_slug(repo: str, go: bool = False) -> str:
-    return (f'<div class="top" data-zone="top"><span class="mark"></span>'
+    return (f'<div class="top" data-zone="top">{MARK}'
             f'<span class="slug">{e(OWNER)} / <b>{e(repo)}</b></span>{GO if go else ""}</div>')
 
 
@@ -112,7 +117,7 @@ def top_url(url: str, go: bool = False) -> str:
     """Верхняя строка карточки проекта без репозитория: адрес сайта вместо «владелец / репозиторий»."""
     host, _, rest = url.partition("/")
     inner = f'{e(host)}/<b>{e(rest)}</b>' if rest else f'<b>{e(host)}</b>'
-    return (f'<div class="top" data-zone="top"><span class="mark"></span><span class="slug">{inner}</span>'
+    return (f'<div class="top" data-zone="top">{MARK}<span class="slug">{inner}</span>'
             f'{GO if go else ""}</div>')
 
 
@@ -381,17 +386,50 @@ def add(out: Path, cls: str, body: str, w: int, h: int | None, dpr: float, displ
                  "w": w, "h": h or 0, "dpr": dpr, "display": display or 0, "square": square, "photo": photo})
 
 
+def collage(z: float, flow: bool = False) -> str:
+    """Коллаж настоящих результатов для главной картинки: сайт клиента, приложение и оверлей диктовки.
+    Собран в координатах 600×540 и масштабируется через zoom."""
+    body = ('<div class="vglow" style="background:#c3f451;left:80px;top:60px;width:460px;height:400px;opacity:.10"></div>'
+            + window("resnichki-home.jpg", 0, 30, 500, 1)
+            + phone("pora-today.png", 392, 96, 196, 5, 2)
+            + pill("voice-listening.png", 24, 398, 340, 3))
+    pos = "position:relative;margin:0 auto;" if flow else ""
+    return (f'<div class="collage" data-zone="vis" style="{pos}width:{600 * z:.1f}px;height:{540 * z:.1f}px">'
+            f'<div class="vis" data-illus="1" style="zoom:{z};height:540px">{body}</div></div>')
+
+
+def particles(w: int, h: int, seed: int = 3) -> str:
+    """Поток частиц, как на первом экране сайта: несколько волн из steel-точек, плотнее к правому краю."""
+    rnd = random.Random(seed)
+    dots = []
+    for band in range(4):
+        base = h * (0.18 + 0.24 * band) + rnd.uniform(-12, 12)
+        amp, wave, phase = h * rnd.uniform(.07, .13), w * rnd.uniform(.5, .8), rnd.uniform(0, 6.28)
+        for _ in range(int(w * 0.22)):
+            x = w * rnd.random() ** 0.6
+            y = base + amp * math.sin(x / wave * 6.28 + phase) + rnd.gauss(0, h * 0.022)
+            op = (0.10 + 0.5 * rnd.random()) * (0.25 + 0.75 * x / w)
+            dots.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{rnd.uniform(.6, 1.7):.1f}" fill="#9fb6c8" opacity="{op:.2f}"/>')
+    return (f'<svg class="particles" width="{w}" height="{h}" viewBox="0 0 {w} {h}" data-illus="1">'
+            f'{"".join(dots)}</svg>')
+
+
 def a_profile():
     d = OUT / OWNER / "assets"
     b = T["profile"]["banner"]
     title = f'<span class="l">{e(b["title"][0])}</span><br><span class="l lime">{e(b["title"][1])}</span>'
-    top = f'<div class="top mono" data-zone="top"><span class="mark"></span>{e(b["eyebrow"])}</div>'
+    top = f'<div class="top mono" data-zone="top">{MARK}{e(b["eyebrow"])}</div>'
     # слова через дефис («Telegram-боты», «веб-сервисы») не разрываются переносом; текст не меняется
     sub = re.sub(r"(\w+(?:-\w+)+)", r'<span class="nw">\1</span>', e(b["subtitle"]))
     txt = f'<div class="txt" data-zone="txt"><h1 class="h title">{title}</h1><p class="sub">{sub}</p></div>'
-    add(d / "profile-banner.png", "f-pb", top + txt + motif(330, 300), 1200, 400, 2, DESK_CHECK)
-    add(d / "profile-banner-mobile.png", "f-pbm", top + txt + motif(640, 300, 11), 720, None, 1.5, MOB_CHECK)
-    add(d / "social-preview.png", "f-ps", top + txt + motif(320, 340, 5), 1280, 640, 1, None, square=True)
+    trust = '<div class="trust" data-zone="trust">' + "".join(
+        f'<span class="chip"><span class="dot"></span>{e(x)}</span>' for x in b["trust"]) + "</div>"
+    add(d / "profile-banner.png", "f-pb", particles(1200, 440) + top + txt + trust + collage(0.56),
+        1200, 440, 2, DESK_CHECK, photo=True)
+    add(d / "profile-banner-mobile.png", "f-pbm", particles(720, 520, 5) + top + txt + trust + collage(0.9, flow=True),
+        720, None, 1.5, MOB_CHECK, photo=True)
+    add(d / "social-preview.png", "f-ps", particles(1280, 640, 7) + top + txt + trust + collage(0.74),
+        1280, 640, 1, None, square=True)
     for repo in REPOS:
         c = T["profile"]["cards"][repo]
         line = card_text(c)
