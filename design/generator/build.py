@@ -97,6 +97,17 @@ def synth_tag(key: str = "synthetic_label") -> str:
     return f'<div class="synth-tag" data-zone="synth">{e(T[key])}</div>'
 
 
+def card_text(c: dict) -> str:
+    """Заголовок карточки и плашка с типом решения."""
+    return (f'<div class="txt" data-zone="txt"><p class="line">{e(c["line"])}</p>'
+            f'<div class="kind"><span class="dot"></span>{e(c["kind"])}</div></div>')
+
+
+def byline() -> str:
+    """Подпись автора на баннерах и соцпревью репозиториев."""
+    return f'<div class="byline" data-zone="by">{e(T["byline"])}</div>'
+
+
 def top_url(url: str, go: bool = False) -> str:
     """Верхняя строка карточки проекта без репозитория: адрес сайта вместо «владелец / репозиторий»."""
     host, _, rest = url.partition("/")
@@ -383,7 +394,7 @@ def a_profile():
     add(d / "social-preview.png", "f-ps", top + txt + motif(320, 340, 5), 1280, 640, 1, None, square=True)
     for repo in REPOS:
         c = T["profile"]["cards"][repo]
-        line = f'<div class="txt" data-zone="txt"><p class="line">{e(c["line"])}</p></div>'
+        line = card_text(c)
         arrow = f'<div class="arrow-btn">{ARROW_SVG}</div>'
         st = synth_tag() if repo in SYNTH else ""
         meta = meta_line(c["meta"])
@@ -396,7 +407,7 @@ def a_profile():
             720, None, 1.5, MOB_CHECK)
     # проекты без открытого репозитория: тот же формат, вверху — адрес сайта, на который ведёт карточка
     for key, c in T["profile"]["external_cards"].items():
-        line = f'<div class="txt" data-zone="txt"><p class="line">{e(c["line"])}</p></div>'
+        line = card_text(c)
         arrow = f'<div class="arrow-btn">{ARROW_SVG}</div>'
         st = synth_tag("demo_label") if c.get("demo") else ""
         meta = meta_line(c["meta"])
@@ -415,12 +426,15 @@ def a_products():
         d = OUT / repo / "docs" / "assets"
         st = synth_tag() if repo in SYNTH else ""
         add(d / f"{repo}-banner.png", "f-banner",
-            top_slug(repo) + product_text(repo) + st + viswrap(repo, 618, 40, 0.92), 1200, 460, 2, DESK_CHECK)
+            top_slug(repo) + product_text(repo) + st + byline() + viswrap(repo, 618, 40, 0.92),
+            1200, 460, 2, DESK_CHECK)
         add(d / f"{repo}-banner-mobile.png", "f-mobile",
-            top_slug(repo) + product_text(repo, True) + st + viswrap(repo, 0, 0, 640 / 600, flow=True, crop_h=400),
+            top_slug(repo) + product_text(repo, True) + st
+            + viswrap(repo, 0, 0, 640 / 600, flow=True, crop_h=400) + byline(),
             720, None, 1.5, MOB_CHECK)
         add(d / f"{repo}-social-preview.png", "f-social",
-            top_slug(repo) + product_text(repo) + st + viswrap(repo, 666, 150, 1.0), 1280, 640, 1, None, square=True)
+            top_slug(repo) + product_text(repo) + st + byline() + viswrap(repo, 666, 150, 1.0),
+            1280, 640, 1, None, square=True)
 
 
 def a_tender():

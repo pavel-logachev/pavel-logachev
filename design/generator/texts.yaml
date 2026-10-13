@@ -10,18 +10,21 @@ synthetic_label: синтетические данные
 demo_label: демонстрационные данные
 # Владелец репозиториев: в картинках выводится как «pavel-logachev / <репозиторий>».
 owner: pavel-logachev
+# Подпись автора на баннерах и соцпревью репозиториев.
+byline: Сделал Павел Логачев, вайб-кодер · logachev.net
 
 profile:
   banner:
     eyebrow: Павел Логачев
     title:
-      - Разбираю задачу
-      - Лично довожу до запуска
-    subtitle: Сайты, веб-сервисы, приложения, Telegram-боты и автоматизация — с ИИ или без него.
+      - Вайб-кодер. 20 лет в ИТ
+      - Реализую любое решение
+    subtitle: Сайт, веб-сервис, Telegram-бот, приложение или ИИ-агент. Код пишу с ИИ-агентами, за результат отвечаю сам.
   # Карточки проектов без открытого репозитория: ссылка ведет на внешний сайт.
   # url — адрес ссылки карточки без https://; выводится в верхней строке вместо пути репозитория
   # (часть после первого «/» выделяется, как имя репозитория).
   # demo: true — на карточке метка demo_label (скриншоты на демонстрационных данных).
+  # kind — тип решения (плашка под заголовком карточки): показывает, какие формы решений я делаю.
   # meta — нижняя строка карточки: платформа, стек и лицензия либо статус закрытого проекта.
   # Номер версии сюда не пишется: в README его показывает значок релиза.
   # photo: true — сжатие PNG палитрой median cut (для фотоснимков; не текст, параметр сборки).
@@ -29,12 +32,14 @@ profile:
     resnichki:
       name: Реснички от Юли
       line: Сайт студии и курса. Заявки в Telegram
+      kind: Сайт и лендинг
       meta: Используется в рекламе · код закрыт
       url: resnichki.moscow
       photo: true
     fund-portal:
       name: Портал заявок
       line: "Портал заявок: пилот и прототип"
+      kind: Веб-сервис с кабинетами
       meta: Пилот на сервере · код закрыт
       url: logachev.net
       demo: true
@@ -42,22 +47,27 @@ profile:
     ai-tender-radar:
       name: AI Tender Radar
       line: Из закупки — в карточку для звонка
+      kind: ИИ-агент для продаж
       meta: Python · SQLite · Telegram · AGPL-3.0
     stock-configurator:
       name: Stock Configurator
       line: Из запроса — в черновик спецификации
+      kind: Telegram-бот и API
       meta: Python · FastAPI · PostgreSQL · AGPL-3.0
     dsh-mobile:
       name: DSH Mobile
       line: Агент на компьютере. Задачи — с телефона.
+      kind: Мобильный клиент для ИИ-агента
       meta: Android 8+ · Kotlin · Compose · MIT
     voice-input:
       name: Voice Input
       line: Диктовка прямо в поле ввода
+      kind: Приложение для Windows
       meta: Windows 10/11 · .NET 10 · WPF · MIT
     pora:
       name: Пора
       line: Расписание лекарств без аккаунта и интернета
+      kind: Приложение для Android
       meta: Android 7+ · React Native · SQLite · MIT
 
 products:
