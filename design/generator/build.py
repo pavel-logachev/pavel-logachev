@@ -131,6 +131,40 @@ def window(src: str, left: float, top: float, width: float, z: int = 1) -> str:
             f'<img src="{furl(SRC / src)}"></div>')
 
 
+FADE_PAD = 100                              # место для собственной тени окна (0 30px 60px) внутри слоя с маской
+WINDOW_RE = re.compile(r'<div class="window" style="left:(?P<left>-?[\d.]+)px;top:(?P<top>-?[\d.]+)px;'
+                       r'width:(?P<width>[\d.]+)px;z-index:(?P<z>\d+)"><img src="[^"]*/(?P<src>[^"/]+)"></div>')
+
+
+def fade_bottom(win: str, fade_from_px: float) -> str:
+    """Окно выше рамки, которую ему даёт зона, показывается верхней частью: ниже fade_from_px (пиксели
+    снимка) окно вместе с тенью плавно исчезает к нижнему краю снимка. win — разметка window(...).
+    Так показано окно настроек Voice Input 1.2: sources/voice-settings.png — верх снимка UiPreview
+    (docs/assets/product/settings.png, 200 %) в пропорциях окна 1.1, 238 × 313 зоны; растворяется ниже
+    блока «Распознавание». Если разметка уже с маской (её так же оборачивает tools/render-banners.py
+    репозитория voice-input), она остаётся как есть, чтобы маска не легла дважды."""
+    if "mask-image" in win:
+        return win
+    m = WINDOW_RE.fullmatch(win)
+    if not m:
+        raise ValueError("fade_bottom ждёт разметку window(...)")
+    left, top, width = (float(m[k]) for k in ("left", "top", "width"))
+    with Image.open(SRC / m["src"]) as im:
+        width_px, height_px = im.size
+    if fade_from_px >= height_px:
+        raise ValueError(f"{m['src']}: растворение ниже края снимка")
+    height = width * height_px / width_px
+    solid = FADE_PAD + width * fade_from_px / width_px
+    gone = FADE_PAD + height
+    stops = ", ".join(
+        f"rgba(0,0,0,{(1 - t) ** 1.6:.3f}) {solid + (gone - solid) * t:.1f}px" for t in (0, .25, .5, .75, 1))
+    mask = f"linear-gradient(to bottom, #000 0px, {stops})"
+    inner = window(m["src"], FADE_PAD, FADE_PAD, int(width) if width.is_integer() else width, int(m["z"]))
+    return (f'<div style="position:absolute;left:{left - FADE_PAD:g}px;top:{top - FADE_PAD:g}px;'
+            f'width:{width + 2 * FADE_PAD:g}px;height:{height + 2 * FADE_PAD:.1f}px;z-index:{m["z"]};'
+            f'-webkit-mask-image:{mask};mask-image:{mask}">' + inner + '</div>')
+
+
 def tg_bubble(c: dict, kb: bool) -> str:
     q = "".join(f"<p>• {e(x)}</p>" for x in c["questions"])
     out = f"""
@@ -230,8 +264,9 @@ def vis(repo: str, card: bool = False) -> str:
                 + pill("voice-processing.png", 100, 162, 460, 3)
                 + pill("voice-success.png", 170, 272, 460, 3))
     elif repo == "voice-input":
-        # три состояния оверлея слева, окно настроек справа; ничего не перекрывается
-        body = (window("voice-settings.png", 362, 12, 238, 1)
+        # три состояния оверлея слева, окно настроек справа; ничего не перекрывается.
+        # Окно 1.2 выше рамки: видны карточка движка и блок «Распознавание» (до 1014 px снимка), ниже — растворение
+        body = (fade_bottom(window("voice-settings.png", 362, 12, 238, 1), 1030)
                 + pill("voice-listening.png", 0, 74, 336, 3)
                 + pill("voice-processing.png", 0, 162, 336, 3)
                 + pill("voice-success.png", 0, 250, 336, 3))
