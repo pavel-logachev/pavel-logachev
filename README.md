@@ -1,6 +1,6 @@
 <a href="https://logachev.net/"><picture><source media="(max-width: 767px)" srcset="assets/profile-banner-mobile.png"><img src="assets/profile-banner.png" alt="Павел Логачев. Сайт, бот или сервис под вашу задачу. Сам разберу задачу, сделаю и запущу. Разбор — бесплатно, цена — до начала работы, 30 дней исправлений."></picture></a>
 
-[Сайт](https://logachev.net/) · [Журнал](https://logachev.net/journal/) · [Telegram-канал](https://t.me/neirogazeta) · [Обсудить задачу](mailto:pavel@logachev.net)
+[Сайт](https://logachev.net/) · [Журнал](https://logachev.net/journal/) · [Telegram-канал](https://t.me/neirogazeta) · [Обсудить задачу](mailto:ai@logachev.net)
 
 20 лет в ИТ: инженер, затем руководитель проектов. Отвечаю и работаю лично.
 
@@ -102,6 +102,6 @@
 
 ## Расскажите, что хотите сделать
 
-Напишите в двух словах, что нужно сделать, — [на почту](mailto:pavel@logachev.net) или [в Telegram](https://t.me/pavel_logachev). Отвечу сам в течение рабочего дня, договоримся о бесплатном разборе на 20–30 минут, а цену и срок назову до начала работы.
+Напишите в двух словах, что нужно сделать, — [на почту](mailto:ai@logachev.net) или [в Telegram](https://t.me/pavel_logachev). Отвечу сам в течение рабочего дня, договоримся о бесплатном разборе на 20–30 минут, а цену и срок назову до начала работы.
 
 Работаю из Москвы, удаленно — с бизнесом и частными лицами по всей России и в СНГ.
