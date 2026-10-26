@@ -45,7 +45,7 @@
 
 [![Последний релиз](https://img.shields.io/github/v/release/pavel-logachev/dsh-mobile?style=flat-square&label=%D1%80%D0%B5%D0%BB%D0%B8%D0%B7&labelColor=0b0f14&color=c3f451)](https://github.com/pavel-logachev/dsh-mobile/releases/latest) [![Проверки в CI](https://img.shields.io/github/actions/workflow/status/pavel-logachev/dsh-mobile/ci.yml?branch=main&style=flat-square&label=CI&labelColor=0b0f14)](https://github.com/pavel-logachev/dsh-mobile/actions/workflows/ci.yml) [![Лицензия](https://img.shields.io/github/license/pavel-logachev/dsh-mobile?style=flat-square&label=%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F&labelColor=0b0f14&color=7f99ad)](https://github.com/pavel-logachev/dsh-mobile/blob/main/LICENSE)
 
-**Что посмотреть:** [архитектура](https://github.com/pavel-logachev/dsh-mobile/blob/main/docs/ARCHITECTURE.md) · [протокол](https://github.com/pavel-logachev/dsh-mobile/blob/main/docs/PROTOCOL.md) · [безопасность](https://github.com/pavel-logachev/dsh-mobile/blob/main/docs/SECURITY.md) · [скачать APK](https://github.com/pavel-logachev/dsh-mobile/releases/latest)
+**Что посмотреть:** [архитектура](https://github.com/pavel-logachev/dsh-mobile/blob/main/docs/ARCHITECTURE.md) · [протокол](https://github.com/pavel-logachev/dsh-mobile/blob/main/docs/PROTOCOL.md) · [безопасность](https://github.com/pavel-logachev/dsh-mobile/blob/main/docs/SECURITY.md) · [технический разбор на Хабре](https://habr.com/ru/articles/1099110/) · [скачать APK](https://github.com/pavel-logachev/dsh-mobile/releases/latest)
 
 ### Боты, автоматизация и ИИ-агенты
 
