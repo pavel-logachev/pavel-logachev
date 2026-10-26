@@ -41,7 +41,7 @@
 
 <a href="https://github.com/pavel-logachev/dsh-mobile"><picture><source media="(max-width: 767px)" srcset="assets/card-dsh-mobile-mobile.png"><img src="assets/card-dsh-mobile.png" alt="DSH Mobile, приложение для Android, выпущено: список чатов, чат с работающим агентом и выбор проекта."></picture></a>
 
-**[DSH Mobile](https://github.com/pavel-logachev/dsh-mobile) — управление ИИ-агентами с телефона.** Неофициальный Android-клиент для DeepSeek Harness: открыть чат проекта, поставить задачу, следить за ответом в реальном времени и получить уведомление, когда агент закончил. Сделал приложение, плагин для компьютера и защищенное соединение между ними по Wi-Fi или через Tailscale. У приложения 280 модульных тестов и 45 инструментальных, пройденных на эмуляторах Android 11 и Android 16, у плагина 241 тест. Компьютер должен быть включен, облачного сервера нет.
+**[DSH Mobile](https://github.com/pavel-logachev/dsh-mobile) — управление ИИ-агентами с телефона.** Неофициальный Android-клиент для DeepSeek Harness: открыть чат проекта, поставить задачу, следить за ответом в реальном времени и получить уведомление, когда агент закончил. Сделал приложение, плагин для компьютера и защищенное соединение между ними по Wi-Fi или через Tailscale. В исходниках приложения 357 модульных и 86 инструментальных тестов — по числу методов с аннотацией @Test на 27 октября 2026 года; это количество тестов, не результат нового прогона. У плагина в прогоне 27 октября 2026 года 280 тестов: 275 пройдены, 5 пропущены, ошибок нет. Компьютер должен быть включен, облачного сервера нет.
 
 [![Последний релиз](https://img.shields.io/github/v/release/pavel-logachev/dsh-mobile?style=flat-square&label=%D1%80%D0%B5%D0%BB%D0%B8%D0%B7&labelColor=0b0f14&color=c3f451)](https://github.com/pavel-logachev/dsh-mobile/releases/latest) [![Проверки в CI](https://img.shields.io/github/actions/workflow/status/pavel-logachev/dsh-mobile/ci.yml?branch=main&style=flat-square&label=CI&labelColor=0b0f14)](https://github.com/pavel-logachev/dsh-mobile/actions/workflows/ci.yml) [![Лицензия](https://img.shields.io/github/license/pavel-logachev/dsh-mobile?style=flat-square&label=%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F&labelColor=0b0f14&color=7f99ad)](https://github.com/pavel-logachev/dsh-mobile/blob/main/LICENSE)
 
@@ -105,3 +105,4 @@
 Напишите в двух словах, что нужно сделать, — [на почту](mailto:pavel@logachev.net) или [в Telegram](https://t.me/pavel_logachev). Отвечу сам в течение рабочего дня, договоримся о бесплатном разборе на 20–30 минут, а цену и срок назову до начала работы.
 
 Работаю из Москвы, удаленно — с бизнесом и частными лицами по всей России и в СНГ.
+
