@@ -53,4 +53,4 @@
 
 Написать: [Telegram](https://t.me/pavel_logachev) · [pavel@logachev.net](mailto:pavel@logachev.net). Работаю из Москвы, удаленно по России и СНГ.
 
-В ноябре 2026 года прошел онлайн-курсы Хельсинкского университета «Elements of AI» ([сертификат](https://certificates.mooc.fi/validate/5bdkbulf8vh)) и Гарвардского университета CS50P ([сертификат](https://cs50.harvard.edu/certificates/0d190f08-a16f-459b-a193-17d1925ad103)).
+В ноябре 2026 года прошел онлайн-курс Хельсинкского университета «Elements of AI» ([сертификат](https://certificates.mooc.fi/validate/5bdkbulf8vh)) и два курса Гарвардского университета: CS50P по программированию на Python ([сертификат](https://cs50.harvard.edu/certificates/0d190f08-a16f-459b-a193-17d1925ad103)) и CS50AI по искусственному интеллекту ([сертификат](https://cs50.harvard.edu/certificates/d9e58d37-88c4-44ed-8af4-91d687e829b3)).
