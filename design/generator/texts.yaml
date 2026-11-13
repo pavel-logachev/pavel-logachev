@@ -41,7 +41,7 @@ profile:
       photo: true
     fund-portal:
       name: Портал заявок
-      line: Портал, кабинет или CRM — под ваш процесс
+      line: Портал, кабинет или CRM под ваш процесс
       kind: Веб-сервис · пилот и прототип
       meta: Пилот на сервере · код закрыт
       url: logachev.net
@@ -49,7 +49,7 @@ profile:
   cards:
     ai-tender-radar:
       name: AI Tender Radar
-      line: Кому звонить и о чем говорить — из открытых закупок
+      line: Кому звонить и о чем говорить по открытым закупкам
       kind: ИИ-агент · работает
       meta: Python · SQLite · Telegram · AGPL-3.0
     stock-configurator:
@@ -84,7 +84,7 @@ products:
     pipeline: [Запрос, Подбор, Сверка, Excel]
   dsh-mobile:
     name: DSH Mobile
-    subtitle: [Агент на компьютере, Задачи — с телефона]
+    subtitle: [Агент на компьютере, Задачи с телефона]
     note: Чаты DSH и уведомления на Android
   voice-input:
     name: Voice Input
@@ -130,7 +130,7 @@ tender_card:
   contact_role: начальник отдела ИТ
   contact_phone: +7 (000) 000-00-00
   opening_label: "Начать так:"
-  opening: Иван, добрый день! Видим закупку серверов и СХД — хотим уточнить два вопроса по ТЗ.
+  opening: Иван, добрый день! Видим закупку серверов и СХД, хотим уточнить два вопроса по ТЗ.
   questions_label: Спросить
   questions:
     - Нужна ли миграция данных со старой СХД?

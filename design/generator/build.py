@@ -177,7 +177,7 @@ def tg_bubble(c: dict, kb: bool) -> str:
   <p><b>{e(c['economics_label'])}</b> {e(c['economics'])}</p>
   <div class="gap"></div>
   <p><b>{e(c['contacts_label'])}</b></p>
-  <p>• {e(c['contact_name'])} — {e(c['contact_role'])}</p>
+  <p>• {e(c['contact_name'])}, {e(c['contact_role'])}</p>
   <p class="ind">☎ {e(c['contact_phone'])}</p>
   <div class="gap"></div>
   <p><b>{e(c['opening_label'])}</b> {e(c['opening'])}</p>
