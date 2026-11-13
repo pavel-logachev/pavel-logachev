@@ -1,112 +1,56 @@
-<a href="https://logachev.net/"><picture><source media="(max-width: 767px)" srcset="assets/profile-banner-mobile.png"><img src="assets/profile-banner.png" alt="Павел Логачев. Сайт, бот или сервис под вашу задачу. Сам разберу задачу, сделаю и запущу. Лендинг – от 25 000 ₽ и от 7 дней, Telegram-бот – от 20 000 ₽ и от 5 дней. Цену и срок назову до начала работы. Разбор – бесплатно, цена – до начала работы, 30 дней исправлений. Примеры работ. Сайт «Реснички от Юли» с заголовком «Свои. Но лучше.», приложение «Пора» с расписанием и отметкой приема лекарств, оверлей Voice Input «Слушаю»."></picture></a>
+<a href="https://logachev.net/"><picture><source media="(max-width: 767px)" srcset="assets/profile-banner-mobile.png"><img src="assets/profile-banner.png" alt="Павел Логачев. ИИ-агенты для продаж и закупок. Мой агент для поиска клиентов в госзакупках работает в боевом режиме, код открыт. 20 лет в ИТ, веду проекты системной интеграции до 250 млн ₽. Код открыт, тесты и CI, решения за человеком. Макет карточки лида в Telegram на синтетических данных, DSH Mobile на телефоне, оверлей Voice Input «Слушаю»."></picture></a>
 
-[Сайт](https://logachev.net/) · [Журнал](https://logachev.net/journal/) · [Telegram-канал](https://t.me/neirogazeta) · [Обсудить задачу](mailto:pavel@logachev.net)
+[Сайт](https://logachev.net/) · [Все проекты](https://logachev.net/projects/) · [Написать в Telegram](https://t.me/pavel_logachev)
 
-20 лет в ИТ: инженер, затем руководитель проектов. Отвечаю и работаю лично.
+Внедряю ИИ-агентов в продажи и закупки. В ИТ 20 лет: десять лет был инженером, последние десять и сейчас веду проекты системной интеграции для госсектора и крупных компаний до 250 млн ₽.
 
-Код пишут ИИ-агенты под моим руководством. Я проектирую, проверяю и запускаю.
+Свои ИИ-проекты делаю с командой ИИ-агентов. Код пишут агенты, я проектирую, проверяю и запускаю. Здесь их открытый код, релизы и ограничения.
 
-**Разбор 20–30 минут - бесплатно · Цена не меняется без изменения объема · 30 дней исправлений после запуска**
+## Главные проекты
 
-Здесь - то, что можно проверить: открытый код, релизы и ограничения моих проектов.
+<a href="https://github.com/pavel-logachev/ai-tender-radar"><picture><source media="(max-width: 767px)" srcset="assets/card-ai-tender-radar-mobile.png"><img src="assets/card-ai-tender-radar.png" alt="AI Tender Radar, ИИ-агент, работает: макет карточки лида в Telegram на синтетических данных - закупка, срок, заказчик, контакт и начало разговора."></picture></a>
 
-## Что сделаю и сколько это стоит
+**[AI Tender Radar](https://github.com/pavel-logachev/ai-tender-radar) – кому звонить, из открытых закупок.** Агент читает закупки серверов и СХД на Bidzaar, документы и отчетность ФНС, находит человека с телефоном и присылает менеджеру в Telegram карточку для звонка. Цифры телефона код сверяет с прочитанным источником. Работает в боевом режиме, разобрал закупки сотен компаний. 726 тестов.
 
-- **[Сайты, лендинги и запуск рекламы](https://logachev.net/sites/).** Лендинг - от 25 000 ₽, сайт компании - от 45 000 ₽, запуск рекламы - от 15 000 ₽. Чтобы о вас узнавали и оставляли заявки. Если нужно, сам запущу рекламу: Яндекс Директ, Яндекс Бизнес, VK Реклама, Авито. Лендинг с запуском рекламы - от 40 000 ₽.
-- **[Веб-сервисы: порталы, личные кабинеты, CRM, внутренние системы](https://logachev.net/services/) - от 60 000 ₽.** Заявки, документы и этапы в одном месте, у каждого свой доступ.
-- **[Telegram-боты](https://logachev.net/bots/).** Бот для заявок с ручным подтверждением - от 20 000 ₽, бот автозаписи - от 35 000 ₽, 2–3 недели, бот с CRM или ИИ - от 50 000 ₽. Бот отвечает на частые вопросы. Интеграция оплаты оценивается отдельно.
-- **[Приложения для Windows и Android](https://logachev.net/apps/) - от 100 000 ₽.** Отдельный инструмент под вашу задачу - на компьютере или телефоне.
-- **[Автоматизация и ИИ-агенты](https://logachev.net/ai/) - от 50 000 ₽.** Рутину с данными и документами берет программа, решения остаются за человеком.
-- **[Нестандартные задачи](https://logachev.net/#contact).** Инструменты для исследований, работы и личных задач. Не знаете, какой инструмент нужен, - расскажите, что хотите получить.
+[![Проверки в CI](https://img.shields.io/github/actions/workflow/status/pavel-logachev/ai-tender-radar/quality.yml?branch=main&style=flat-square&label=CI&labelColor=0b0f14)](https://github.com/pavel-logachev/ai-tender-radar/actions/workflows/quality.yml) [![Лицензия](https://img.shields.io/github/license/pavel-logachev/ai-tender-radar?style=flat-square&label=%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F&labelColor=0b0f14&color=7f99ad)](https://github.com/pavel-logachev/ai-tender-radar/blob/main/LICENSE)
 
-## Проекты, которые можно проверить
-
-Выпущенные приложения, рабочие системы, клиентский сайт и прототипы. Статус указан у каждого, у пяти открыт код.
-
-### Приложения
-
-<a href="https://github.com/pavel-logachev/voice-input"><picture><source media="(max-width: 767px)" srcset="assets/card-voice-input-mobile.png"><img src="assets/card-voice-input.png" alt="Voice Input, приложение для Windows, выпущено: оверлей диктовки в трех состояниях - «Слушаю», «Распознаю», «Готово»."></picture></a>
-
-**[Voice Input](https://github.com/pavel-logachev/voice-input) - голосовой ввод без переключения между окнами.** Зажали горячую клавишу, сказали фразу, отпустили - текст появился у курсора в любом поле ввода Windows. Сделал интерфейс и настройки, запись звука, вставку текста, установщик и три способа распознавания: через OpenAI по ключу пользователя, моделью GigaAM прямо на компьютере без интернета или на своем сервере с API, совместимым с OpenAI. 251 автотест проверяет диктовку, отмену, хранение ключа и вставку. Для распознавания через OpenAI нужны интернет и API-ключ OpenAI, а GigaAM рассчитана только на русскую речь.
-
-[![Последний релиз](https://img.shields.io/github/v/release/pavel-logachev/voice-input?style=flat-square&label=%D1%80%D0%B5%D0%BB%D0%B8%D0%B7&labelColor=0b0f14&color=c3f451)](https://github.com/pavel-logachev/voice-input/releases/latest) [![Проверки в CI](https://img.shields.io/github/actions/workflow/status/pavel-logachev/voice-input/ci.yml?branch=main&style=flat-square&label=CI&labelColor=0b0f14)](https://github.com/pavel-logachev/voice-input/actions/workflows/ci.yml) [![Лицензия](https://img.shields.io/github/license/pavel-logachev/voice-input?style=flat-square&label=%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F&labelColor=0b0f14&color=7f99ad)](https://github.com/pavel-logachev/voice-input/blob/main/LICENSE)
-
-**Что посмотреть:** [архитектура](https://github.com/pavel-logachev/voice-input/blob/main/docs/ARCHITECTURE.md) · [тесты](https://github.com/pavel-logachev/voice-input/tree/main/tests) · [исследование локальных моделей](https://github.com/pavel-logachev/voice-input/blob/main/docs/MODEL_RESEARCH.md) · [скачать установщик](https://github.com/pavel-logachev/voice-input/releases/latest)
-
-<a href="https://github.com/pavel-logachev/pora"><picture><source media="(max-width: 767px)" srcset="assets/card-pora-mobile.png"><img src="assets/card-pora.png" alt="Пора, приложение для Android, выпущено: история приемов лекарств, экран «Сегодня» с ближайшим приемом и темная тема."></picture></a>
-
-**[Пора](https://github.com/pavel-logachev/pora) - расписание лекарств всегда под рукой.** Напоминания, отметка приема прямо из уведомления, история и встроенный справочник ЕСКЛП на 23 001 препарат. Основные функции работают без аккаунта и интернета. Спроектировал и сделал приложение, хранение данных на телефоне, необязательную синхронизацию и сервер для нее. Выпустил подписанный APK. 78 автотестов. Приложение не назначает лечение и не проверяет совместимость лекарств.
-
-[![Последний релиз](https://img.shields.io/github/v/release/pavel-logachev/pora?style=flat-square&label=%D1%80%D0%B5%D0%BB%D0%B8%D0%B7&labelColor=0b0f14&color=c3f451)](https://github.com/pavel-logachev/pora/releases/latest) [![Проверки в CI](https://img.shields.io/github/actions/workflow/status/pavel-logachev/pora/ci.yml?branch=main&style=flat-square&label=CI&labelColor=0b0f14)](https://github.com/pavel-logachev/pora/actions/workflows/ci.yml) [![Лицензия](https://img.shields.io/github/license/pavel-logachev/pora?style=flat-square&label=%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F&labelColor=0b0f14&color=7f99ad)](https://github.com/pavel-logachev/pora/blob/main/LICENSE)
-
-**Что посмотреть:** [архитектура и модель доверия](https://github.com/pavel-logachev/pora/blob/main/docs/ARCHITECTURE.md) · [уведомления](https://github.com/pavel-logachev/pora/tree/main/src/notifications) · [синхронизация](https://github.com/pavel-logachev/pora/tree/main/src/sync) · [скачать APK](https://github.com/pavel-logachev/pora/releases/latest)
+**Что посмотреть:** [сверка контактов с источником](https://github.com/pavel-logachev/ai-tender-radar/blob/main/agent_radar/lead_agent/grounding.py) · [архитектура](https://github.com/pavel-logachev/ai-tender-radar/blob/main/docs/ARCHITECTURE.md) · [протокол проверки](https://github.com/pavel-logachev/ai-tender-radar/blob/main/docs/VERIFICATION.md) · [что опубликовано](https://github.com/pavel-logachev/ai-tender-radar/blob/main/docs/PUBLICATION_BOUNDARY.md) · [разбор в журнале](https://logachev.net/journal/ii-agent-dlya-generacii-lidov-zakupki/) · [демо на 1 минуту](https://logachev.net/ai/tendery/#demo)
 
 <a href="https://github.com/pavel-logachev/dsh-mobile"><picture><source media="(max-width: 767px)" srcset="assets/card-dsh-mobile-mobile.png"><img src="assets/card-dsh-mobile.png" alt="DSH Mobile, приложение для Android, выпущено: список чатов, чат с работающим агентом и выбор проекта."></picture></a>
 
-**[DSH Mobile](https://github.com/pavel-logachev/dsh-mobile) - управление ИИ-агентами с телефона.** Неофициальный Android-клиент для DeepSeek Harness: открыть чат проекта, поставить задачу, следить за ответом в реальном времени и получить уведомление, когда агент закончил. Сделал приложение, плагин для компьютера и защищенное соединение между ними по Wi-Fi или через Tailscale. DSH Mobile 0.9.3 (8 ноября 2026) - Android-клиент для DeepSeek Harness с открытым кодом. Android-приложение - 551 модульный тест, 0 ошибок. Плагин - 389 из 389, relay - 19 из 19. Компьютер должен быть включен, облачного сервера нет.
+**[DSH Mobile](https://github.com/pavel-logachev/dsh-mobile) – управление ИИ-агентами с телефона.** Неофициальный Android-клиент для DeepSeek Harness: чат проекта, задача агенту, ответ в реальном времени и уведомление, когда агент закончил. Приложение, плагин для компьютера и защищенное соединение по Wi-Fi или через Tailscale, без облака. 551 модульный тест у приложения, 389 у плагина.
 
 [![Последний релиз](https://img.shields.io/github/v/release/pavel-logachev/dsh-mobile?style=flat-square&label=%D1%80%D0%B5%D0%BB%D0%B8%D0%B7&labelColor=0b0f14&color=c3f451)](https://github.com/pavel-logachev/dsh-mobile/releases/latest) [![Проверки в CI](https://img.shields.io/github/actions/workflow/status/pavel-logachev/dsh-mobile/ci.yml?branch=main&style=flat-square&label=CI&labelColor=0b0f14)](https://github.com/pavel-logachev/dsh-mobile/actions/workflows/ci.yml) [![Лицензия](https://img.shields.io/github/license/pavel-logachev/dsh-mobile?style=flat-square&label=%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F&labelColor=0b0f14&color=7f99ad)](https://github.com/pavel-logachev/dsh-mobile/blob/main/LICENSE)
 
 **Что посмотреть:** [архитектура](https://github.com/pavel-logachev/dsh-mobile/blob/main/docs/ARCHITECTURE.md) · [протокол](https://github.com/pavel-logachev/dsh-mobile/blob/main/docs/PROTOCOL.md) · [безопасность](https://github.com/pavel-logachev/dsh-mobile/blob/main/docs/SECURITY.md) · [технический разбор на Хабре](https://habr.com/ru/articles/1099110/) · [уведомления без пушей Google](https://habr.com/ru/articles/1103324/) · [скачать APK](https://github.com/pavel-logachev/dsh-mobile/releases/latest)
 
-### Боты, автоматизация и ИИ-агенты
+<a href="https://github.com/pavel-logachev/voice-input"><picture><source media="(max-width: 767px)" srcset="assets/card-voice-input-mobile.png"><img src="assets/card-voice-input.png" alt="Voice Input, приложение для Windows, выпущено: оверлей диктовки в трех состояниях - «Слушаю», «Распознаю», «Готово»."></picture></a>
 
-<a href="https://github.com/pavel-logachev/ai-tender-radar"><picture><source media="(max-width: 767px)" srcset="assets/card-ai-tender-radar-mobile.png"><img src="assets/card-ai-tender-radar.png" alt="AI Tender Radar, ИИ-агент, работает: макет карточки лида в Telegram на синтетических данных - закупка, срок, заказчик, контакт и начало разговора."></picture></a>
+**[Voice Input](https://github.com/pavel-logachev/voice-input) – голосовой ввод в любое поле Windows.** Зажали клавишу, сказали фразу, отпустили, и текст появился у курсора. Распознавание через OpenAI по ключу пользователя, моделью GigaAM на компьютере без интернета или на своем сервере. 251 автотест. GigaAM понимает только русскую речь.
 
-**[AI Tender Radar](https://github.com/pavel-logachev/ai-tender-radar) - кому звонить и о чем говорить, из открытых закупок.** Агент сам читает закупки серверов и СХД на Bidzaar, документы и отчетность ФНС, находит человека с телефоном и присылает менеджеру в Telegram готовую карточку для звонка. Цифры телефона код механически сверяет с прочитанным источником. В боевом режиме агент уже разобрал закупки сотен компаний. В репозитории 726 тестов.
+[![Последний релиз](https://img.shields.io/github/v/release/pavel-logachev/voice-input?style=flat-square&label=%D1%80%D0%B5%D0%BB%D0%B8%D0%B7&labelColor=0b0f14&color=c3f451)](https://github.com/pavel-logachev/voice-input/releases/latest) [![Проверки в CI](https://img.shields.io/github/actions/workflow/status/pavel-logachev/voice-input/ci.yml?branch=main&style=flat-square&label=CI&labelColor=0b0f14)](https://github.com/pavel-logachev/voice-input/actions/workflows/ci.yml) [![Лицензия](https://img.shields.io/github/license/pavel-logachev/voice-input?style=flat-square&label=%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F&labelColor=0b0f14&color=7f99ad)](https://github.com/pavel-logachev/voice-input/blob/main/LICENSE)
 
-[![Проверки в CI](https://img.shields.io/github/actions/workflow/status/pavel-logachev/ai-tender-radar/quality.yml?branch=main&style=flat-square&label=CI&labelColor=0b0f14)](https://github.com/pavel-logachev/ai-tender-radar/actions/workflows/quality.yml) [![Лицензия](https://img.shields.io/github/license/pavel-logachev/ai-tender-radar?style=flat-square&label=%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F&labelColor=0b0f14&color=7f99ad)](https://github.com/pavel-logachev/ai-tender-radar/blob/main/LICENSE)
+**Что посмотреть:** [архитектура](https://github.com/pavel-logachev/voice-input/blob/main/docs/ARCHITECTURE.md) · [тесты](https://github.com/pavel-logachev/voice-input/tree/main/tests) · [исследование локальных моделей](https://github.com/pavel-logachev/voice-input/blob/main/docs/MODEL_RESEARCH.md) · [скачать установщик](https://github.com/pavel-logachev/voice-input/releases/latest)
 
-**Что посмотреть:** [сверка контактов с источником](https://github.com/pavel-logachev/ai-tender-radar/blob/main/agent_radar/lead_agent/grounding.py) · [архитектура](https://github.com/pavel-logachev/ai-tender-radar/blob/main/docs/ARCHITECTURE.md) · [протокол проверки](https://github.com/pavel-logachev/ai-tender-radar/blob/main/docs/VERIFICATION.md) · [что опубликовано](https://github.com/pavel-logachev/ai-tender-radar/blob/main/docs/PUBLICATION_BOUNDARY.md) · [разбор в журнале](https://logachev.net/journal/ii-agent-dlya-generacii-lidov-zakupki/)
+## Как я проверяю код, который пишут агенты
 
-<a href="https://github.com/pavel-logachev/stock-configurator"><picture><source media="(max-width: 767px)" srcset="assets/card-stock-configurator-mobile.png"><img src="assets/card-stock-configurator.png" alt="Stock Configurator, Telegram-бот, первая рабочая версия: макет листа Excel «КП» на синтетических данных - позиции, суммы и блок «Перед отправкой проверить»."></picture></a>
+- У каждого проекта автотесты и CI. 726 тестов в Tender Radar, 551 в DSH Mobile, 251 в Voice Input.
+- Факты, цифры и деньги проверяет код, а не модель. Телефон в карточке Tender Radar сверяется с источником, цены и остатки в Stock Configurator подставляет код.
+- Решения с последствиями принимает человек: звонок, отправку КП, состав спецификации.
+- Ограничения и то, что не опубликовано, описаны в README каждого проекта.
 
-**[Stock Configurator](https://github.com/pavel-logachev/stock-configurator) - черновик спецификации из наличия на складе.** Менеджер пишет запрос обычным текстом в Telegram и получает Excel с черновиком серверной спецификации - только из позиций, которые есть на складе дистрибьютора. Модель подбирает оборудование, артикулы, цены и остатки подставляет код, состав и совместимость подтверждает инженер. Сделал бота, API на FastAPI, коннекторы к складам и отчеты. Первая рабочая версия. Экономия времени не измерялась.
+## Другие проекты
 
-[![Проверки в CI](https://img.shields.io/github/actions/workflow/status/pavel-logachev/stock-configurator/ci.yml?branch=main&style=flat-square&label=CI&labelColor=0b0f14)](https://github.com/pavel-logachev/stock-configurator/actions/workflows/ci.yml) [![Лицензия](https://img.shields.io/github/license/pavel-logachev/stock-configurator?style=flat-square&label=%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F&labelColor=0b0f14&color=7f99ad)](https://github.com/pavel-logachev/stock-configurator/blob/main/LICENSE)
+- **[Stock Configurator](https://github.com/pavel-logachev/stock-configurator)** – черновик серверной спецификации в Excel из наличия на складе дистрибьютора. Цены и остатки подставляет код, состав подтверждает инженер. Первая рабочая версия.
+- **[«Пора»](https://github.com/pavel-logachev/pora)** – напоминания о лекарствах на Android без аккаунта и интернета, справочник ЕСКЛП на 23 001 препарат. 78 автотестов.
+- **[AI Proposal Builder](https://logachev.net/journal/kommercheskoe-predlozhenie-ii/)** – КП по шаблону компании в DOCX и PDF, суммы и НДС считает программа. Первая рабочая версия.
+- **[Портал заявок на поддержку предприятий](https://logachev.net/projects/#case-fund-portal)** – реестр заявок, этапы, роли и генерация документов. Пилот и прототип, код закрыт.
+- **[«Реснички от Юли»](https://resnichki.moscow/)** – сайт студии и реклама, заявки сразу в Telegram. Клиентский проект, код закрыт.
 
-**Что посмотреть:** [архитектура](https://github.com/pavel-logachev/stock-configurator/blob/main/docs/ARCHITECTURE.md) · [сверка со складом](https://github.com/pavel-logachev/stock-configurator/tree/main/app/matching) · [офлайн-оценка](https://github.com/pavel-logachev/stock-configurator/tree/main/app/evaluation) · [что опубликовано](https://github.com/pavel-logachev/stock-configurator/blob/main/docs/PUBLIC_RELEASE_BOUNDARY.md) · [разбор в журнале](https://logachev.net/journal/podbor-oborudovaniya-po-skladu-ii/)
+## Работа со мной
 
-### Сайты и веб-сервисы для клиентов
+Делаю ИИ-агентов и автоматизацию (пилот одного процесса от 50 000 ₽, 2–4 недели), а также сайты, Telegram-ботов, веб-сервисы и приложения. Цены и сроки на [logachev.net](https://logachev.net/). Разбор задачи на 20–30 минут бесплатный, цену называю до начала работы, 30 дней исправлений после запуска.
 
-Код этих проектов закрыт, данные клиентов не публикую.
+Написать: [Telegram](https://t.me/pavel_logachev) · [pavel@logachev.net](mailto:pavel@logachev.net). Работаю из Москвы, удаленно по России и СНГ.
 
-<a href="https://resnichki.moscow/"><picture><source media="(max-width: 767px)" srcset="assets/card-resnichki-mobile.png"><img src="assets/card-resnichki.png" alt="«Реснички от Юли», сайт, работает: главная страница сайта студии и страница курса на телефоне."></picture></a>
-
-**[«Реснички от Юли»](https://resnichki.moscow/) - сайт и реклама: заявки сразу в Telegram.** Сайт студии наращивания ресниц и [страница курса](https://resnichki.moscow/kurs). Рекламу настраивал сам - Яндекс Директ, VK Реклама и Авито: в первые дни после запуска пошли записи в студию и первые продажи курса. Заявки сохраняются на сервере и сразу приходят в Telegram - мне и Юле.
-
-<a href="https://logachev.net/projects/#case-fund-portal"><picture><source media="(max-width: 767px)" srcset="assets/card-fund-portal-mobile.png"><img src="assets/card-fund-portal.png" alt="Портал заявок, веб-сервис, пилот и прототип: экраны портала на демонстрационных данных."></picture></a>
-
-**[Портал заявок на поддержку предприятий](https://logachev.net/projects/#case-fund-portal) - портал, кабинет или CRM под ваш процесс.** Так собираю порталы, личные кабинеты, CRM и внутренние системы: заявки, документы, этапы, роли и отчеты - под то, как работаете вы. В этом проекте - реестр заявок, очередь задач, этапы рассмотрения, журнал действий и генерация документов. Сервис читает PDF и DOCX и предлагает значения полей с указанием места в исходнике, а ключевые решения подтверждает человек. Часть портала - пилот на сервере, часть - прототип. На скриншотах демонстрационные данные.
-
-**[AI Proposal Builder](https://logachev.net/journal/kommercheskoe-predlozhenie-ii/) - коммерческое предложение по шаблону компании.** Менеджер отправляет вводные одним сообщением - бот уточняет недостающее и собирает КП в DOCX и PDF. Суммы и НДС считает программа, отправку подтверждает менеджер. Первая рабочая версия.
-
-## Как я работаю
-
-1. **Бесплатный разбор: 20–30 минут.** Вы рассказываете, что нужно и как работаете сейчас, - готовое ТЗ не требуется. После разговора называю первый объем работ, цену и срок.
-2. **Делаю и запускаю первую версию.** Код пишут ИИ-агенты под моим руководством. Я проектирую, проверяю и запускаю: вы общаетесь с тем, кто отвечает за результат. Начинаем с согласованного первого объема, чтобы вы получили работающий результат, а не долгий проект.
-3. **Развиваю после запуска.** 30 дней бесплатно исправляю ошибки в сделанном. Дальше решаем, что добавить или изменить: развитие и сопровождение согласуем отдельно.
-
-**Что я обещаю**
-
-- **Отвечаю в течение рабочего дня** - сам, без менеджеров.
-- **Цена не меняется без изменения объема.** Стоимость и срок называю после разбора, до начала работы.
-- **Оплата двумя частями:** половина перед началом работы, половина после запуска согласованного объема.
-- **30 дней исправлений бесплатно.** Если после запуска в сделанном найдется ошибка, исправлю ее за свой счет.
-- **Код и доступы остаются у вас.** После оплаты передаю исходный код и все доступы: вы не привязаны ко мне.
-- **Договор и закрывающие документы.** После сдачи работы вы получаете акт и документы об оплате.
-
-## Обо мне
-
-В ИТ 20 лет. Первые десять был инженером: сети, серверы, рабочие места, информационная безопасность. Последние десять и сейчас - менеджер по ключевым клиентам и руководитель проектов: продаю и веду проекты системной интеграции (оборудование, ПО, внедрение) для международных компаний уровня Alibaba, Nokia, Walt Disney и Greif и федеральных госзаказчиков. Бюджеты проектов до 250 млн ₽, команды из 5–10 человек: инженеры, ассистенты, закупка. Закупки по 44-ФЗ и 223-ФЗ. 500 млн ₽ выручки от продаж по моим проектам в 2022 году. Поэтому я разбираюсь в технике, понимаю, как устроены продажи и закупки в крупных компаниях, и умею вести проект от задачи до сдачи.
-
-С ИИ-агентами у меня больше 1000 часов практики: начинал с агентов для собственной работы в продажах ИТ-оборудования. В каждом проекте сам разбираю задачу, проектирую, проверяю результат, настраиваю и запускаю. ИИ использую там, где он полезен, и не навязываю там, где надежнее обычный код.
-
-Практику подкрепляю курсами ведущих университетов мира. В ноябре 2026 года прошел онлайн-курсы Хельсинкского университета «Elements of AI» ([сертификат](https://certificates.mooc.fi/validate/5bdkbulf8vh)) и Гарвардского университета CS50P по программированию на Python ([сертификат](https://cs50.harvard.edu/certificates/0d190f08-a16f-459b-a193-17d1925ad103)).
-
-## Расскажите, что хотите сделать
-
-Напишите в двух словах, что нужно сделать, - [на почту](mailto:pavel@logachev.net) или [в Telegram](https://t.me/pavel_logachev). Отвечу сам в течение рабочего дня, договоримся о бесплатном разборе на 20–30 минут, а цену и срок назову до начала работы.
-
-Работаю из Москвы, удаленно - с бизнесом и частными лицами по всей России и в СНГ.
-
+В ноябре 2026 года прошел онлайн-курсы Хельсинкского университета «Elements of AI» ([сертификат](https://certificates.mooc.fi/validate/5bdkbulf8vh)) и Гарвардского университета CS50P ([сертификат](https://cs50.harvard.edu/certificates/0d190f08-a16f-459b-a193-17d1925ad103)).

@@ -429,12 +429,15 @@ def add(out: Path, cls: str, body: str, w: int, h: int | None, dpr: float, displ
 
 
 def collage(z: float, flow: bool = False) -> str:
-    """Коллаж настоящих результатов для главной картинки: сайт клиента, приложение и оверлей диктовки.
-    Собран в координатах 600×540 и масштабируется через zoom."""
+    """Коллаж для главной картинки профиля: карточка Tender Radar (синтетические данные), DSH Mobile
+    и оверлей диктовки. Собран в координатах 600×540 и масштабируется через zoom."""
+    card = (f'<div class="tg" style="position:absolute;left:0;top:16px;width:476px;height:560px;zoom:.86;z-index:1;'
+            f'border-radius:16px;box-shadow:0 0 0 1px rgba(233,238,242,.16),0 30px 60px rgba(0,0,0,.55)">'
+            f'{tg_bubble(T["tender_card"], kb=False)}</div>')
     body = ('<div class="vglow" style="background:#c3f451;left:80px;top:60px;width:460px;height:400px;opacity:.10"></div>'
-            + window("resnichki-home.jpg", 0, 30, 500, 1)
-            + phone("pora-today.png", 392, 96, 196, 5, 2)
-            + pill("voice-listening.png", 24, 398, 340, 3))
+            + card
+            + phone("dsh-chat-running.png", 392, 70, 196, 5, 2)
+            + pill("voice-listening.png", 24, 410, 340, 3))
     pos = "position:relative;margin:0 auto;" if flow else ""
     return (f'<div class="collage" data-zone="vis" style="{pos}width:{600 * z:.1f}px;height:{540 * z:.1f}px">'
             f'<div class="vis" data-illus="1" style="zoom:{z};height:540px">{body}</div></div>')
