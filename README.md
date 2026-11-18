@@ -10,7 +10,7 @@
 
 <a href="https://github.com/pavel-logachev/ai-tender-radar"><picture><source media="(max-width: 767px)" srcset="assets/card-ai-tender-radar-mobile.png"><img src="assets/card-ai-tender-radar.png" alt="AI Tender Radar, ИИ-агент, работает: макет карточки лида в Telegram на синтетических данных - закупка, срок, заказчик, контакт и начало разговора."></picture></a>
 
-**[AI Tender Radar](https://github.com/pavel-logachev/ai-tender-radar) – кому звонить, из открытых закупок.** Агент читает закупки серверов и СХД на Bidzaar, документы и отчетность ФНС, находит человека с телефоном и присылает менеджеру в Telegram карточку для звонка. Цифры телефона код сверяет с прочитанным источником. Работает в боевом режиме, разобрал закупки сотен компаний. 726 тестов.
+**[AI Tender Radar](https://github.com/pavel-logachev/ai-tender-radar) – кому звонить, из открытых закупок.** Агент читает закупки серверов и СХД на Bidzaar, документы и отчетность ФНС, находит контакт с телефоном (бывает, что это номер отдела или приемной) и присылает менеджеру в Telegram карточку для звонка. Цифры телефона код сверяет с прочитанным источником. Работает в боевом режиме, разобрал закупки сотен компаний. 726 тестов.
 
 [![Проверки в CI](https://img.shields.io/github/actions/workflow/status/pavel-logachev/ai-tender-radar/quality.yml?branch=main&style=flat-square&label=CI&labelColor=0b0f14)](https://github.com/pavel-logachev/ai-tender-radar/actions/workflows/quality.yml) [![Лицензия](https://img.shields.io/github/license/pavel-logachev/ai-tender-radar?style=flat-square&label=%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F&labelColor=0b0f14&color=7f99ad)](https://github.com/pavel-logachev/ai-tender-radar/blob/main/LICENSE)
 
@@ -22,11 +22,11 @@
 
 [![Последний релиз](https://img.shields.io/github/v/release/pavel-logachev/dsh-mobile?style=flat-square&label=%D1%80%D0%B5%D0%BB%D0%B8%D0%B7&labelColor=0b0f14&color=c3f451)](https://github.com/pavel-logachev/dsh-mobile/releases/latest) [![Проверки в CI](https://img.shields.io/github/actions/workflow/status/pavel-logachev/dsh-mobile/ci.yml?branch=main&style=flat-square&label=CI&labelColor=0b0f14)](https://github.com/pavel-logachev/dsh-mobile/actions/workflows/ci.yml) [![Лицензия](https://img.shields.io/github/license/pavel-logachev/dsh-mobile?style=flat-square&label=%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F&labelColor=0b0f14&color=7f99ad)](https://github.com/pavel-logachev/dsh-mobile/blob/main/LICENSE)
 
-**Что посмотреть:** [архитектура](https://github.com/pavel-logachev/dsh-mobile/blob/main/docs/ARCHITECTURE.md) · [протокол](https://github.com/pavel-logachev/dsh-mobile/blob/main/docs/PROTOCOL.md) · [безопасность](https://github.com/pavel-logachev/dsh-mobile/blob/main/docs/SECURITY.md) · [технический разбор на Хабре](https://habr.com/ru/articles/1099110/) · [уведомления без пушей Google](https://habr.com/ru/articles/1103324/) · [скачать APK](https://github.com/pavel-logachev/dsh-mobile/releases/latest)
+**Что посмотреть:** [архитектура](https://github.com/pavel-logachev/dsh-mobile/blob/main/docs/ARCHITECTURE.md) · [протокол](https://github.com/pavel-logachev/dsh-mobile/blob/main/docs/PROTOCOL.md) · [безопасность](https://github.com/pavel-logachev/dsh-mobile/blob/main/docs/SECURITY.md) · [технический разбор на Хабре](https://habr.com/ru/articles/1099110/) · [скачать APK](https://github.com/pavel-logachev/dsh-mobile/releases/latest)
 
 <a href="https://github.com/pavel-logachev/voice-input"><picture><source media="(max-width: 767px)" srcset="assets/card-voice-input-mobile.png"><img src="assets/card-voice-input.png" alt="Voice Input, приложение для Windows, выпущено: оверлей диктовки в трех состояниях - «Слушаю», «Распознаю», «Готово»."></picture></a>
 
-**[Voice Input](https://github.com/pavel-logachev/voice-input) – голосовой ввод в любое поле Windows.** Зажали клавишу, сказали фразу, отпустили, и текст появился у курсора. Распознавание через OpenAI по ключу пользователя, моделью GigaAM на компьютере без интернета или на своем сервере. 251 автотест. GigaAM понимает только русскую речь.
+**[Voice Input](https://github.com/pavel-logachev/voice-input) – голосовой ввод в поля Windows.** Зажали клавишу, сказали фразу, отпустили, и текст появился у курсора. Распознавание через OpenAI по ключу пользователя, моделью GigaAM на компьютере без интернета или на своем сервере. 251 автотест. GigaAM понимает только русскую речь.
 
 [![Последний релиз](https://img.shields.io/github/v/release/pavel-logachev/voice-input?style=flat-square&label=%D1%80%D0%B5%D0%BB%D0%B8%D0%B7&labelColor=0b0f14&color=c3f451)](https://github.com/pavel-logachev/voice-input/releases/latest) [![Проверки в CI](https://img.shields.io/github/actions/workflow/status/pavel-logachev/voice-input/ci.yml?branch=main&style=flat-square&label=CI&labelColor=0b0f14)](https://github.com/pavel-logachev/voice-input/actions/workflows/ci.yml) [![Лицензия](https://img.shields.io/github/license/pavel-logachev/voice-input?style=flat-square&label=%D0%BB%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F&labelColor=0b0f14&color=7f99ad)](https://github.com/pavel-logachev/voice-input/blob/main/LICENSE)
 
@@ -42,7 +42,7 @@
 ## Другие проекты
 
 - **[Stock Configurator](https://github.com/pavel-logachev/stock-configurator)** – черновик серверной спецификации в Excel из наличия на складе дистрибьютора. Цены и остатки подставляет код, состав подтверждает инженер. Первая рабочая версия.
-- **[«Пора»](https://github.com/pavel-logachev/pora)** – напоминания о лекарствах на Android без аккаунта и интернета, справочник ЕСКЛП на 23 001 препарат. 78 автотестов.
+- **[«Пора»](https://github.com/pavel-logachev/pora)** – напоминания о лекарствах на Android, напоминания и справочник ЕСКЛП на 23 001 препарат работают без аккаунта и интернета. 78 автотестов.
 - **[AI Proposal Builder](https://logachev.net/journal/kommercheskoe-predlozhenie-ii/)** – КП по шаблону компании в DOCX и PDF, суммы и НДС считает программа. Первая рабочая версия.
 - **[Портал заявок на поддержку предприятий](https://logachev.net/projects/#case-fund-portal)** – реестр заявок, этапы, роли и генерация документов. Пилот и прототип, код закрыт.
 - **[«Реснички от Юли»](https://resnichki.moscow/)** – сайт студии и реклама, заявки сразу в Telegram. Клиентский проект, код закрыт.
